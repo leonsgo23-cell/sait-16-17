@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Спасибо! Доступ получен</title>
+  <style>
+    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:#030712;color:#fff;display:flex;min-height:100vh;align-items:center;justify-content:center;padding:24px}
+    .card{max-width:720px;width:100%;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:28px;padding:28px}
+    h1{margin:0 0 12px;font-size:32px;line-height:1.1}
+    p{margin:0 0 18px;color:rgba(255,255,255,.75);font-size:18px;line-height:1.5}
+    a.btn{display:inline-block;background:#2563eb;color:#fff;text-decoration:none;padding:14px 18px;border-radius:18px;font-weight:800}
+    .small{margin-top:14px;font-size:14px;color:rgba(255,255,255,.55)}
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>Спасибо! Оплата прошла ✅</h1>
+    <p>Вы успешно зарегистрировались. Нажмите кнопку ниже, чтобы перейти в Telegram‑группу участников.</p>
+    <a class="btn" id="tg" href="#">Перейти в Telegram‑группу</a>
+    <div class="small">Если кнопка не открывается — скопируйте ссылку: <span id="tgs"></span></div>
+  </div>
+  <script>
+    // Задайте ссылку на группу/инвайт через переменную окружения при деплое.
+    // Для статичного хостинга можно просто заменить TG_LINK ниже вручную.
+    const TG_LINK = "https://t.me/your_group_or_invite";
+    const tg = document.getElementById('tg');
+    const tgs = document.getElementById('tgs');
+    tg.href = TG_LINK;
+    tgs.textContent = TG_LINK;
+  </script>
+</body>
+</html>

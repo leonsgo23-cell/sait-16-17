@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Персональный AI-ассистент — Фокус на год</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Lucide Icons CDN -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+            background-color: #030712;
+            color: white;
+        }
+        .gradient-text {
+            background: linear-gradient(90deg, #60A5FA, #A78BFA);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .blur-glow {
+            position: absolute;
+            filter: blur(100px);
+            z-index: -1;
+            opacity: 0.15;
+            pointer-events: none;
+        }
+        @keyframes spin-slow {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        .animate-spin-slow {
+            animation: spin-slow 12s linear infinite;
+        }
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-out, opacity 0.3s ease-in;
+            opacity: 0;
+        }
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+            opacity: 1;
+            padding-bottom: 2rem;
+        }
+        .faq-item.active .faq-chevron {
+            transform: rotate(180deg);
+        }
+        .selection-bg::selection {
+            background-color: rgba(59, 130, 246, 0.3);
+        }
+    </style>
+<script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@^19.2.4",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.4/",
+    "react/": "https://esm.sh/react@^19.2.4/",
+    "lucide-react": "https://esm.sh/lucide-react@^0.563.0"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+<body class="selection-bg overflow-x-hidden">
+
+    <!-- Navbar -->
+    <nav class="fixed top-0 left-0 right-0 z-50 border-b border-white/5 bg-gray-950/80 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+            <div class="flex items-center gap-2">
+                <div class="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
+                    <i data-lucide="brain-circuit" class="text-white w-5 h-5"></i>
+                </div>
+                <span class="font-bold text-xl tracking-tight uppercase text-[10px] sm:text-sm">AI Lunar Focus</span>
+            </div>
+            <div class="hidden md:flex items-center gap-8 text-sm text-gray-400 font-medium">
+                <a href="#problems" class="hover:text-white transition-colors">Проблема</a>
+                <a href="#lunar" class="hover:text-white transition-colors">Почему сейчас?</a>
+                <a href="#program" class="hover:text-white transition-colors">Программа</a>
+                <a href="#pricing" class="hover:text-white transition-colors">Стоимость</a>
+            </div>
+            <a href="#pricing" class="bg-white text-black px-4 py-2 rounded-full text-sm font-bold hover:bg-gray-200 transition-colors">
+                Участвовать
+            </a>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="relative pt-32 pb-20 px-6 overflow-hidden">
+        <div class="blur-glow bg-blue-500 w-[600px] h-[600px] -top-40 -left-40"></div>
+        <div class="blur-glow bg-indigo-400 w-[500px] h-[500px] top-40 -right-20 opacity-20"></div>
+        <div class="absolute top-20 right-[10%] opacity-20 animate-pulse">
+            <i data-lucide="moon" size="120" class="text-blue-200 filter blur-[1px]"></i>
+        </div>
+        
+        <div class="max-w-4xl mx-auto text-center relative z-10">
+            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-blue-400/30 bg-blue-400/5 text-blue-300 text-xs font-bold uppercase tracking-widest mb-8">
+                <i data-lucide="moon" size="14" class="animate-spin-slow"></i>
+                16-17 Февраля • В гармонии с лунным циклом
+            </div>
+            <h1 class="text-5xl md:text-8xl font-extrabold mb-8 leading-[1] tracking-tighter">
+                Постановка целей и построение <span class="gradient-text">систему достижения</span>
+            </h1>
+            <p class="text-xl md:text-2xl text-gray-400 mb-10 max-w-2xl mx-auto leading-relaxed">
+                2 дня интенсивной работы, синхронизированной с природными ритмами. Выходим из хаоса в чёткую AI-систему на весь год.
+            </p>
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="#pricing" class="w-full sm:w-auto px-10 py-5 bg-blue-600 hover:bg-blue-700 text-white rounded-2xl font-black text-lg transition-all transform hover:scale-105 shadow-2xl shadow-blue-500/40 flex items-center justify-center gap-3">
+                    Занять место на 16-17 февраля
+                    <i data-lucide="arrow-right" size="20"></i>
+                </a>
+            </div>
+            
+            <div class="mt-20 relative">
+                <div class="absolute -inset-1 bg-gradient-to-r from-blue-500/20 to-indigo-600/20 rounded-3xl blur-2xl opacity-50"></div>
+                <div class="relative bg-gray-900/40 backdrop-blur-xl border border-white/10 rounded-3xl p-6 md:p-10 grid grid-cols-2 md:grid-cols-4 gap-6 items-center grayscale opacity-60">
+                    <div class="flex flex-col items-center gap-2"><i data-lucide="target" class="w-8 h-8 text-blue-400"></i> <span class="text-xs uppercase font-bold tracking-widest">2026 Goals</span></div>
+                    <div class="flex flex-col items-center gap-2"><i data-lucide="clock" class="w-8 h-8 text-blue-400"></i> <span class="text-xs uppercase font-bold tracking-widest">Daily Sprint</span></div>
+                    <div class="flex flex-col items-center gap-2"><i data-lucide="brain-circuit" class="w-8 h-8 text-blue-400"></i> <span class="text-xs uppercase font-bold tracking-widest">AI Agent</span></div>
+                    <div class="flex flex-col items-center gap-2"><i data-lucide="stars" class="w-8 h-8 text-blue-400"></i> <span class="text-xs uppercase font-bold tracking-widest">Lunar Rhythm</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lunar Section -->
+    <section id="lunar" class="py-24 px-6 relative overflow-hidden border-y border-white/5 bg-[#050a18]">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div class="relative">
+                    <div class="absolute -inset-10 bg-blue-500/20 blur-[100px] rounded-full"></div>
+                    <div class="relative space-y-8">
+                        <h2 class="text-4xl md:text-5xl font-black leading-tight">
+                            Почему 16-17 февраля — <br /><span class="text-blue-400">идеальное время?</span>
+                        </h2>
+                        <div class="space-y-6">
+                            <div class="flex gap-4 p-6 bg-white/5 rounded-2xl border border-white/10">
+                                <div class="w-12 h-12 shrink-0 bg-blue-500/20 rounded-full flex items-center justify-center text-blue-400 font-bold">16</div>
+                                <div>
+                                    <h4 class="text-lg font-bold mb-1">День очищения (Темная Луна)</h4>
+                                    <p class="text-gray-400 text-sm">Идеально для аудита прошлого года, избавления от лишнего и составления стоп-листа. Энергия на спаде помогает легко отпускать.</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-4 p-6 bg-blue-600/20 rounded-2xl border border-blue-500/30 ring-1 ring-blue-500/20 shadow-lg shadow-blue-500/10">
+                                <div class="w-12 h-12 shrink-0 bg-blue-500 rounded-full flex items-center justify-center text-white font-bold animate-pulse">17</div>
+                                <div>
+                                    <h4 class="text-lg font-bold mb-1 text-blue-300">Рождение нового (Новолуние)</h4>
+                                    <p class="text-blue-100/70 text-sm">Точка старта. Планы, заложенные в этот день, получают поддержку естественного цикла роста. Это фундамент на весь год.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div class="p-8 bg-gray-900 border border-white/5 rounded-3xl space-y-4 hover:border-blue-500/30 transition-all">
+                        <i data-lucide="stars" class="text-yellow-500"></i>
+                        <h5 class="font-bold">Биоритмы</h5>
+                        <p class="text-gray-400 text-sm">Мозг лучше фокусируется на будущем, когда внешняя среда находится в фазе обновления.</p>
+                    </div>
+                    <div class="p-8 bg-gray-900 border border-white/5 rounded-3xl space-y-4 hover:border-blue-500/30 transition-all">
+                        <i data-lucide="sun" class="text-orange-400"></i>
+                        <h5 class="font-bold">Энергия</h5>
+                        <p class="text-gray-400 text-sm">Февраль — время пробуждения от зимней спячки. Мы ловим волну первой весенней активности.</p>
+                    </div>
+                    <div class="p-8 bg-gray-900 border border-white/5 rounded-3xl space-y-4 hover:border-blue-500/30 transition-all">
+                        <i data-lucide="brain-circuit" class="text-purple-400"></i>
+                        <h5 class="font-bold">AI Синхронизация</h5>
+                        <p class="text-gray-400 text-sm">Мы учим ИИ работать не просто по календарю, а по вашим внутренним пикам продуктивности.</p>
+                    </div>
+                    <div class="p-8 bg-gray-900 border border-white/5 rounded-3xl space-y-4 hover:border-blue-500/30 transition-all">
+                        <i data-lucide="calendar" class="text-green-400"></i>
+                        <h5 class="font-bold">Дисциплина</h5>
+                        <p class="text-gray-400 text-sm">Привязка к лунным фазам создает естественный дедлайн, который невозможно отодвинуть.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Symptoms -->
+    <section id="problems" class="py-24 px-6 bg-gray-900/50">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-5xl font-black mb-4 uppercase tracking-tighter">Вы узнаете себя, если…</h2>
+                <div class="w-20 h-1 bg-blue-600 mx-auto rounded-full"></div>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="p-6 bg-gray-800/40 border border-white/5 rounded-2xl flex items-start gap-4 hover:border-blue-500/30 transition-colors">
+                    <i data-lucide="x-circle" class="text-red-400 shrink-0 mt-1" size="24"></i>
+                    <p class="text-gray-300 font-medium leading-relaxed">У вас несколько проектов, и каждый день начинается с вопроса «за что хвататься»</p>
+                </div>
+                <div class="p-6 bg-gray-800/40 border border-white/5 rounded-2xl flex items-start gap-4 hover:border-blue-500/30 transition-colors">
+                    <i data-lucide="x-circle" class="text-red-400 shrink-0 mt-1" size="24"></i>
+                    <p class="text-gray-300 font-medium leading-relaxed">Вы уже используете ChatGPT, но хаотично и без системы</p>
+                </div>
+                <div class="p-6 bg-gray-800/40 border border-white/5 rounded-2xl flex items-start gap-4 hover:border-blue-500/30 transition-colors">
+                    <i data-lucide="x-circle" class="text-red-400 shrink-0 mt-1" size="24"></i>
+                    <p class="text-gray-300 font-medium leading-relaxed">Список задач растёт быстрее, чем вы его закрываете</p>
+                </div>
+                <div class="p-6 bg-gray-800/40 border border-white/5 rounded-2xl flex items-start gap-4 hover:border-blue-500/30 transition-colors">
+                    <i data-lucide="x-circle" class="text-red-400 shrink-0 mt-1" size="24"></i>
+                    <p class="text-gray-300 font-medium leading-relaxed">В голове постоянно ощущение перегруза и недоделанных дел</p>
+                </div>
+                <div class="p-6 bg-gray-800/40 border border-white/5 rounded-2xl flex items-start gap-4 hover:border-blue-500/30 transition-colors">
+                    <i data-lucide="x-circle" class="text-red-400 shrink-0 mt-1" size="24"></i>
+                    <p class="text-gray-300 font-medium leading-relaxed">Вы понимаете, что можете больше, но распыление съедает результат</p>
+                </div>
+                <div class="p-6 bg-gray-800/40 border border-white/5 rounded-2xl flex items-start gap-4 hover:border-blue-500/30 transition-colors">
+                    <i data-lucide="x-circle" class="text-red-400 shrink-0 mt-1" size="24"></i>
+                    <p class="text-gray-300 font-medium leading-relaxed">В конце недели сложно ответить себе: что реально продвинулось</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Real Problem -->
+    <section class="py-24 px-6 relative">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-4xl md:text-5xl font-black mb-12">В чём реальная проблема?</h2>
+            <div class="space-y-8 text-xl text-gray-400">
+                <p>Проблема не в нехватке времени. <br />И не в количестве задач.</p>
+                <div class="p-10 bg-gradient-to-br from-blue-600/10 to-indigo-600/10 border border-blue-500/20 rounded-[3rem] text-left relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 p-8 opacity-5 group-hover:opacity-10 transition-opacity"><i data-lucide="shield-check" size="140"></i></div>
+                    <h3 class="text-white font-bold mb-8 text-3xl">Проблема в отсутствии внешней системы, которая:</h3>
+                    <ul class="space-y-6">
+                        <li class="flex items-center gap-4 text-white text-lg"><i data-lucide="check-circle-2" class="text-blue-500 shrink-0" size="24"></i> удерживает фокус на главном</li>
+                        <li class="flex items-center gap-4 text-white text-lg"><i data-lucide="check-circle-2" class="text-blue-500 shrink-0" size="24"></i> не даёт вам перескакивать между направлениями</li>
+                        <li class="flex items-center gap-4 text-white text-lg"><i data-lucide="check-circle-2" class="text-blue-500 shrink-0" size="24"></i> ежедневно возвращает к годовому плану</li>
+                    </ul>
+                </div>
+                <p class="leading-relaxed">Предприниматель остаётся один на один с хаосом. <br />Даже если у него есть ChatGPT — он не превращён в персонального ассистента, который управляет вниманием и приоритетами.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- What You Get -->
+    <section class="py-24 px-6 bg-blue-600 relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-full h-full opacity-10 pointer-events-none">
+            <div class="absolute top-[-10%] right-[-10%] w-[500px] h-[500px] bg-white rounded-full blur-[120px]"></div>
+        </div>
+        
+        <div class="max-w-7xl mx-auto relative z-10">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-6xl font-black mb-4 text-white tracking-tighter">Что вы получите за 2 дня</h2>
+                <p class="text-blue-100 text-xl font-medium max-w-4xl mx-auto leading-relaxed">Систему целей на 2026 год. AI ассистента, который будет помогать, анализировать и находить лучшие способы достижения ваших целей</p>
+            </div>
+            
+            <div class="grid lg:grid-cols-2 gap-12">
+                <!-- Main Program -->
+                <div class="bg-white/10 p-10 rounded-[3rem] border border-white/20 backdrop-blur-xl shadow-2xl">
+                    <h3 class="text-3xl font-black mb-10 text-white flex items-center gap-3">
+                        <i data-lucide="target" class="text-white" size="32"></i> Основная программа
+                    </h3>
+                    <div class="space-y-4">
+                        <div class="flex items-start gap-4 bg-white/5 p-5 rounded-2xl border border-white/10 hover:bg-white/20 transition-all transform hover:-translate-x-1">
+                            <i data-lucide="check-circle-2" class="text-white mt-1 shrink-0" size="24"></i>
+                            <span class="text-white font-bold text-lg">Аудит года: поймём, куда утекала энергия</span>
+                        </div>
+                        <div class="flex items-start gap-4 bg-white/5 p-5 rounded-2xl border border-white/10 hover:bg-white/20 transition-all transform hover:-translate-x-1">
+                            <i data-lucide="check-circle-2" class="text-white mt-1 shrink-0" size="24"></i>
+                            <span class="text-white font-bold text-lg">«Что я НЕ буду точно делать в 2026»</span>
+                        </div>
+                        <div class="flex items-start gap-4 bg-white/5 p-5 rounded-2xl border border-white/10 hover:bg-white/20 transition-all transform hover:-translate-x-1">
+                            <i data-lucide="check-circle-2" class="text-white mt-1 shrink-0" size="24"></i>
+                            <span class="text-white font-bold text-lg">Стоп-лист: решим, от чего отказаться</span>
+                        </div>
+                        <div class="flex items-start gap-4 bg-white/5 p-5 rounded-2xl border border-white/10 hover:bg-white/20 transition-all transform hover:-translate-x-1">
+                            <i data-lucide="check-circle-2" class="text-white mt-1 shrink-0" size="24"></i>
+                            <span class="text-white font-bold text-lg">Ценности: определим ради чего вы достигаете своих целей</span>
+                        </div>
+                        <div class="flex items-start gap-4 bg-white/5 p-5 rounded-2xl border border-white/10 hover:bg-white/20 transition-all transform hover:-translate-x-1">
+                            <i data-lucide="check-circle-2" class="text-white mt-1 shrink-0" size="24"></i>
+                            <span class="text-white font-bold text-lg">Сгенерируем цели из ценностей</span>
+                        </div>
+                        <div class="flex items-start gap-4 bg-white/5 p-5 rounded-2xl border border-white/10 hover:bg-white/20 transition-all transform hover:-translate-x-1">
+                            <i data-lucide="check-circle-2" class="text-white mt-1 shrink-0" size="24"></i>
+                            <span class="text-white font-bold text-lg">Отфильтруем «чужие» цели</span>
+                        </div>
+                        <div class="flex items-start gap-4 bg-white/5 p-5 rounded-2xl border border-white/10 hover:bg-white/20 transition-all transform hover:-translate-x-1">
+                            <i data-lucide="check-circle-2" class="text-white mt-1 shrink-0" size="24"></i>
+                            <span class="text-white font-bold text-lg">Выберем 3 главных приоритета</span>
+                        </div>
+                        <div class="flex items-start gap-4 bg-white/5 p-5 rounded-2xl border border-white/10 hover:bg-white/20 transition-all transform hover:-translate-x-1">
+                            <i data-lucide="check-circle-2" class="text-white mt-1 shrink-0" size="24"></i>
+                            <span class="text-white font-bold text-lg">Построим план по шагам</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- AI Gift Column -->
+                <div class="bg-gray-950/40 p-10 rounded-[3rem] border border-white/10 backdrop-blur-md">
+                    <h3 class="text-2xl font-bold mb-10 text-blue-200 flex items-center gap-3 leading-tight">
+                        <i data-lucide="plus-circle" class="text-blue-400"></i> Дополнительный результат - Подарок: AI ассистент по достижению ваших целей
+                    </h3>
+                    <div class="space-y-4 mb-10">
+                        <div class="flex items-start gap-4 p-4 border-l-4 border-blue-500/40 bg-blue-500/5 rounded-r-xl">
+                            <i data-lucide="zap" class="text-blue-400 mt-1 shrink-0" size="20"></i>
+                            <span class="text-gray-200 font-medium">Настроите персонального AI-ассистента под себя и свои проекты</span>
+                        </div>
+                        <div class="flex items-start gap-4 p-4 border-l-4 border-blue-500/40 bg-blue-500/5 rounded-r-xl">
+                            <i data-lucide="zap" class="text-blue-400 mt-1 shrink-0" size="20"></i>
+                            <span class="text-gray-200 font-medium">Загрузите в него свой годовой план и структуру задач</span>
+                        </div>
+                        <div class="flex items-start gap-4 p-4 border-l-4 border-blue-500/40 bg-blue-500/5 rounded-r-xl">
+                            <i data-lucide="zap" class="text-blue-400 mt-1 shrink-0" size="20"></i>
+                            <span class="text-gray-200 font-medium">Научите его возвращать вас к приоритетам каждый день</span>
+                        </div>
+                        <div class="flex items-start gap-4 p-4 border-l-4 border-blue-500/40 bg-blue-500/5 rounded-r-xl">
+                            <i data-lucide="zap" class="text-blue-400 mt-1 shrink-0" size="20"></i>
+                            <span class="text-gray-200 font-medium">Создадите систему ежедневной работы через AI</span>
+                        </div>
+                    </div>
+                    <div class="bg-blue-900/30 p-8 rounded-3xl border border-blue-500/20">
+                        <p class="text-blue-200/60 italic mb-3 text-sm font-bold uppercase tracking-widest">Результат практикума:</p>
+                        <p class="text-2xl font-black text-white leading-tight">Вы уходите с настроенной реальностью, а не с папкой конспектов.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Schedule -->
+    <section id="program" class="py-24 px-6 bg-gray-950">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-20">
+                <h2 class="text-4xl md:text-5xl font-black mb-4">Программа двух дней</h2>
+                <p class="text-gray-400 text-lg">Каждый день — это шаг к вашей новой эффективности</p>
+            </div>
+            <div class="grid md:grid-cols-2 gap-12">
+                <!-- Day 1 -->
+                <div class="bg-gray-900/50 border border-white/5 rounded-[3rem] p-10 relative hover:border-blue-500/50 transition-all group overflow-hidden">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-blue-600/5 rounded-full blur-3xl group-hover:bg-blue-600/10 transition-colors"></div>
+                    <div class="inline-block px-5 py-2 bg-blue-600 rounded-full text-xs font-black uppercase tracking-widest shadow-xl mb-6">Этап 1</div>
+                    <h3 class="text-3xl font-black mb-2 group-hover:text-blue-400 transition-colors leading-tight">16 Февраля — Аудит & Структура</h3>
+                    <p class="text-blue-400/80 font-bold text-sm uppercase tracking-widest mb-8">День Очищения</p>
+                    <ul class="space-y-6">
+                        <li class="flex items-start gap-4">
+                            <div class="w-8 h-8 rounded-full bg-gray-800 border border-white/10 flex items-center justify-center shrink-0 mt-0.5 text-sm font-black text-blue-500">1</div>
+                            <p class="text-gray-300 text-lg leading-relaxed">Разбираем ваши проекты и направления</p>
+                        </li>
+                        <li class="flex items-start gap-4">
+                            <div class="w-8 h-8 rounded-full bg-gray-800 border border-white/10 flex items-center justify-center shrink-0 mt-0.5 text-sm font-black text-blue-500">2</div>
+                            <p class="text-gray-300 text-lg leading-relaxed">Проводим глубокий аудит утечек энергии</p>
+                        </li>
+                        <li class="flex items-start gap-4">
+                            <div class="w-8 h-8 rounded-full bg-gray-800 border border-white/10 flex items-center justify-center shrink-0 mt-0.5 text-sm font-black text-blue-500">3</div>
+                            <p class="text-gray-300 text-lg leading-relaxed">Формируем понятную годовую структуру</p>
+                        </li>
+                        <li class="flex items-start gap-4">
+                            <div class="w-8 h-8 rounded-full bg-gray-800 border border-white/10 flex items-center justify-center shrink-0 mt-0.5 text-sm font-black text-blue-500">4</div>
+                            <p class="text-gray-300 text-lg leading-relaxed">Убираем всё лишнее и формируем Стоп-лист</p>
+                        </li>
+                        <li class="flex items-start gap-4">
+                            <div class="w-8 h-8 rounded-full bg-gray-800 border border-white/10 flex items-center justify-center shrink-0 mt-0.5 text-sm font-black text-blue-500">5</div>
+                            <p class="text-gray-300 text-lg leading-relaxed">Загружаем эту структуру в AI для хранения контекста</p>
+                        </li>
+                    </ul>
+                </div>
+                <!-- Day 2 -->
+                <div class="bg-gray-900/50 border border-white/5 rounded-[3rem] p-10 relative hover:border-blue-500/50 transition-all group overflow-hidden">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-blue-600/5 rounded-full blur-3xl group-hover:bg-blue-600/10 transition-colors"></div>
+                    <div class="inline-block px-5 py-2 bg-blue-600 rounded-full text-xs font-black uppercase tracking-widest shadow-xl mb-6">Этап 2</div>
+                    <h3 class="text-3xl font-black mb-2 group-hover:text-blue-400 transition-colors leading-tight">17 Февраля — Цели & Практика</h3>
+                    <p class="text-blue-400/80 font-bold text-sm uppercase tracking-widest mb-8">День Рождения Системы</p>
+                    <ul class="space-y-6">
+                        <li class="flex items-start gap-4">
+                            <div class="w-8 h-8 rounded-full bg-gray-800 border border-white/10 flex items-center justify-center shrink-0 mt-0.5 text-sm font-black text-blue-500">1</div>
+                            <p class="text-gray-300 text-lg leading-relaxed">Синхронизируем цели с вашими ценностями</p>
+                        </li>
+                        <li class="flex items-start gap-4">
+                            <div class="w-8 h-8 rounded-full bg-gray-800 border border-white/10 flex items-center justify-center shrink-0 mt-0.5 text-sm font-black text-blue-500">2</div>
+                            <p class="text-gray-300 text-lg leading-relaxed">Настраиваем ежедневные сценарии работы с AI</p>
+                        </li>
+                        <li class="flex items-start gap-4">
+                            <div class="w-8 h-8 rounded-full bg-gray-800 border border-white/10 flex items-center justify-center shrink-0 mt-0.5 text-sm font-black text-blue-500">3</div>
+                            <p class="text-gray-300 text-lg leading-relaxed">Создаём набор готовых запросов под реальные задачи</p>
+                        </li>
+                        <li class="flex items-start gap-4">
+                            <div class="w-8 h-8 rounded-full bg-gray-800 border border-white/10 flex items-center justify-center shrink-0 mt-0.5 text-sm font-black text-blue-500">4</div>
+                            <p class="text-gray-300 text-lg leading-relaxed">Тестируем ассистента на ваших текущих делах</p>
+                        </li>
+                        <li class="flex items-start gap-4">
+                            <div class="w-8 h-8 rounded-full bg-gray-800 border border-white/10 flex items-center justify-center shrink-0 mt-0.5 text-sm font-black text-blue-500">5</div>
+                            <p class="text-gray-300 text-lg leading-relaxed">Доводим систему до состояния «полная готовность»</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Outcomes -->
+    <section class="py-24 px-6 border-y border-white/5 bg-[#030712]">
+        <div class="max-w-7xl mx-auto">
+            <div class="bg-gradient-to-br from-blue-900/20 to-purple-900/10 rounded-[4rem] p-12 md:p-20 border border-white/5 relative overflow-hidden">
+                <div class="absolute top-0 right-0 p-10 opacity-5"><i data-lucide="stars" size="200"></i></div>
+                <div class="text-center mb-16 relative z-10">
+                    <h2 class="text-4xl md:text-6xl font-black mb-4 tracking-tighter">Что изменится через 30 дней</h2>
+                    <div class="w-24 h-1.5 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto rounded-full"></div>
+                </div>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 relative z-10">
+                    <div class="flex flex-col gap-6 p-8 bg-white/5 rounded-[2rem] border border-white/5 hover:border-blue-500/20 transition-all">
+                        <div class="w-14 h-14 bg-blue-500/10 rounded-2xl flex items-center justify-center border border-blue-500/20">
+                            <i data-lucide="calendar" class="text-blue-400" size="28"></i>
+                        </div>
+                        <p class="text-xl font-bold leading-tight">Чётко работаете по годовой структуре</p>
+                    </div>
+                    <div class="flex flex-col gap-6 p-8 bg-white/5 rounded-[2rem] border border-white/5 hover:border-blue-500/20 transition-all">
+                        <div class="w-14 h-14 bg-blue-500/10 rounded-2xl flex items-center justify-center border border-blue-500/20">
+                            <i data-lucide="calendar" class="text-blue-400" size="28"></i>
+                        </div>
+                        <p class="text-xl font-bold leading-tight">Перестаёте пытаться делать всё одновременно</p>
+                    </div>
+                    <div class="flex flex-col gap-6 p-8 bg-white/5 rounded-[2rem] border border-white/5 hover:border-blue-500/20 transition-all">
+                        <div class="w-14 h-14 bg-blue-500/10 rounded-2xl flex items-center justify-center border border-blue-500/20">
+                            <i data-lucide="calendar" class="text-blue-400" size="28"></i>
+                        </div>
+                        <p class="text-xl font-bold leading-tight">Начинаете каждый день с понятным фокусом</p>
+                    </div>
+                    <div class="flex flex-col gap-6 p-8 bg-white/5 rounded-[2rem] border border-white/5 hover:border-blue-500/20 transition-all">
+                        <div class="w-14 h-14 bg-blue-500/10 rounded-2xl flex items-center justify-center border border-blue-500/20">
+                            <i data-lucide="calendar" class="text-blue-400" size="28"></i>
+                        </div>
+                        <p class="text-xl font-bold leading-tight">Видите, как продвигаются именно ключевые направления</p>
+                    </div>
+                    <div class="flex flex-col gap-6 p-8 bg-white/5 rounded-[2rem] border border-white/5 hover:border-blue-500/20 transition-all">
+                        <div class="w-14 h-14 bg-blue-500/10 rounded-2xl flex items-center justify-center border border-blue-500/20">
+                            <i data-lucide="calendar" class="text-blue-400" size="28"></i>
+                        </div>
+                        <p class="text-xl font-bold leading-tight">Используете AI как ассистента, а не как игрушку для запросов</p>
+                    </div>
+                    <div class="flex flex-col justify-center p-10 bg-gradient-to-br from-blue-600 to-indigo-700 rounded-[2rem] shadow-2xl shadow-blue-500/20">
+                        <i data-lucide="stars" class="text-white/50 mb-4"></i>
+                        <p class="text-2xl font-black text-white leading-tight">Появляется ощущение тотального контроля и порядка в голове.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why AI Works -->
+    <section class="py-24 px-6 relative overflow-hidden bg-gray-950">
+        <div class="max-w-4xl mx-auto text-center relative z-10">
+            <div class="inline-block p-6 bg-blue-600/10 border border-blue-500/20 rounded-[2.5rem] mb-12 shadow-2xl shadow-blue-500/10">
+                <i data-lucide="brain-circuit" size="64" class="text-blue-500"></i>
+            </div>
+            <h2 class="text-4xl md:text-5xl font-black mb-8 uppercase tracking-tighter">Почему это работает?</h2>
+            <div class="grid sm:grid-cols-3 gap-4 mb-16">
+                <div class="p-6 bg-white/5 rounded-2xl border border-white/5 font-bold uppercase tracking-widest text-xs">AI не устаёт</div>
+                <div class="p-6 bg-white/5 rounded-2xl border border-white/5 font-bold uppercase tracking-widest text-xs">Не забывает</div>
+                <div class="p-6 bg-white/5 rounded-2xl border border-white/5 font-bold uppercase tracking-widest text-xs">Не отвлекается</div>
+            </div>
+            <div class="space-y-8 text-xl text-gray-400 leading-relaxed mb-16">
+                <p class="text-2xl font-medium">Вы превращаете его в персонального ассистента, который:</p>
+                <div class="max-w-2xl mx-auto text-left space-y-5">
+                    <div class="flex items-center gap-4 text-white p-5 bg-white/5 rounded-2xl border border-white/5 hover:bg-white/10 transition-all">
+                        <i data-lucide="check-circle-2" class="text-blue-500 shrink-0" size="24"></i> 
+                        <span class="font-bold">Хранит вашу уникальную годовую структуру</span>
+                    </div>
+                    <div class="flex items-center gap-4 text-white p-5 bg-white/5 rounded-2xl border border-white/5 hover:bg-white/10 transition-all">
+                        <i data-lucide="check-circle-2" class="text-blue-500 shrink-0" size="24"></i> 
+                        <span class="font-bold">Знает все ваши проекты и реальные приоритеты</span>
+                    </div>
+                    <div class="flex items-center gap-4 text-white p-5 bg-white/5 rounded-2xl border border-white/5 hover:bg-white/10 transition-all">
+                        <i data-lucide="check-circle-2" class="text-blue-500 shrink-0" size="24"></i> 
+                        <span class="font-bold">Каждый день возвращает вас к самому главному</span>
+                    </div>
+                    <div class="flex items-center gap-4 text-white p-5 bg-white/5 rounded-2xl border border-white/5 hover:bg-white/10 transition-all">
+                        <i data-lucide="check-circle-2" class="text-blue-500 shrink-0" size="24"></i> 
+                        <span class="font-bold">Помогает разбирать входящий хаос без стресса</span>
+                    </div>
+                </div>
+            </div>
+            <div class="p-10 bg-white/5 border border-white/10 rounded-[3rem] backdrop-blur-md">
+                <p class="text-3xl font-black text-white">Это не теория. Это калибровка вашей реальности под возможности будущего.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Audience -->
+    <section class="py-24 px-6 bg-[#030712]">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="bg-green-500/5 border border-green-500/20 rounded-[3rem] p-12 relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 p-8 opacity-5 group-hover:opacity-10 transition-opacity"><i data-lucide="users" size="120"></i></div>
+                    <h3 class="text-3xl font-black mb-10 flex items-center gap-4">
+                        <div class="w-12 h-12 bg-green-500/20 rounded-2xl flex items-center justify-center"><i data-lucide="check-circle-2" class="text-green-500"></i></div> Подойдёт, если вы:
+                    </h3>
+                    <ul class="space-y-6">
+                        <li class="flex gap-4 text-lg text-gray-300 font-medium">Предприниматель или руководитель с несколькими направлениями</li>
+                        <li class="flex gap-4 text-lg text-gray-300 font-medium">Уже пользуетесь ChatGPT, но чувствуете, что используете его на 5%</li>
+                        <li class="flex gap-4 text-lg text-gray-300 font-medium">Устали от постоянного ощущения «недоделанных дел»</li>
+                        <li class="flex gap-4 text-lg text-gray-300 font-medium">Хотите навести порядок в голове через системную автоматизацию</li>
+                    </ul>
+                </div>
+                <div class="bg-red-500/5 border border-red-500/20 rounded-[3rem] p-12 relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 p-8 opacity-5 group-hover:opacity-10 transition-opacity"><i data-lucide="x-circle" size="120"></i></div>
+                    <h3 class="text-3xl font-black mb-10 flex items-center gap-4">
+                        <div class="w-12 h-12 bg-red-500/20 rounded-2xl flex items-center justify-center"><i data-lucide="x-circle" class="text-red-500"></i></div> Не подойдёт, если вы:
+                    </h3>
+                    <ul class="space-y-6">
+                        <li class="flex gap-4 text-lg text-gray-300 font-medium">Ищете просто мотивацию или «вдохновляющие лекции»</li>
+                        <li class="flex gap-4 text-lg text-gray-300 font-medium">Не готовы выделить 2 полных дня на глубокую настройку</li>
+                        <li class="flex gap-4 text-lg text-gray-300 font-medium">Ожидаете, что AI за вас сделает всю физическую работу</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing -->
+    <section id="pricing" class="py-32 px-6 relative">
+        <div class="blur-glow bg-blue-600 w-[400px] h-[400px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-20"></div>
+        <div class="max-w-4xl mx-auto text-center relative z-10">
+            <div class="bg-white text-black p-12 md:p-20 rounded-[4rem] shadow-2xl relative overflow-hidden transform hover:-rotate-1 transition-transform border-[12px] border-white/10">
+                <div class="absolute top-0 right-0 p-12 opacity-5">
+                    <i data-lucide="brain-circuit" size="160"></i>
+                </div>
+                <div class="inline-block px-6 py-2 bg-blue-600 text-white rounded-full text-sm font-black uppercase tracking-[0.2em] mb-8">
+                    16-17 Февраля
+                </div>
+                <h2 class="text-3xl font-black mb-4 uppercase tracking-tighter text-gray-500">Двухдневный Практикум</h2>
+                <h3 class="text-4xl md:text-5xl font-black mb-10 leading-tight">Постановка целей <br />& Построение AI-системы</h3>
+                <div class="flex items-center justify-center gap-4 mb-10">
+                    <div class="text-2xl text-gray-400 line-through font-bold">149 €</div>
+                    <div class="text-8xl font-black text-blue-600 leading-none">89 €</div>
+                </div>
+                <p class="text-xl font-bold text-gray-700 mb-12 max-w-xl mx-auto">
+                    Вы заходите с хаосом, а выходите с персональным ассистентом, который знает ваши цели на 2026.
+                </p>
+                <button class="w-full py-8 bg-black text-white rounded-3xl font-black text-3xl hover:bg-gray-800 transition-all shadow-2xl shadow-black/20 transform hover:scale-[1.02]">
+                    Зарегистрироваться
+                </button>
+                <p class="mt-8 text-gray-400 font-bold uppercase tracking-widest text-xs">Осталось 12 мест из 50</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="py-24 px-6 bg-gray-950">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-5xl font-black mb-16 text-center tracking-tighter">Вопросы и ответы</h2>
+            <div id="faq-container" class="space-y-2">
+                <!-- FAQ Item 1 -->
+                <div class="faq-item border-b border-white/10 last:border-0">
+                    <button class="faq-toggle w-full py-8 flex items-center justify-between text-left group">
+                        <span class="text-xl md:text-2xl font-black group-hover:text-blue-400 transition-colors tracking-tight">Нужно ли хорошо разбираться в AI?</span>
+                        <i data-lucide="chevron-down" class="faq-chevron transition-transform duration-300 text-blue-500" size="28"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p class="text-gray-400 text-xl font-medium leading-relaxed">Нет. Достаточно базового опыта с ChatGPT. Всё остальное мы настраиваем «за руку» на практикуме. Вы просто повторяете шаги.</p>
+                    </div>
+                </div>
+                <!-- FAQ Item 2 -->
+                <div class="faq-item border-b border-white/10 last:border-0">
+                    <button class="faq-toggle w-full py-8 flex items-center justify-between text-left group">
+                        <span class="text-xl md:text-2xl font-black group-hover:text-blue-400 transition-colors tracking-tight">Это теория или практика?</span>
+                        <i data-lucide="chevron-down" class="faq-chevron transition-transform duration-300 text-blue-500" size="28"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p class="text-gray-400 text-xl font-medium leading-relaxed">Это 90% практики. В первый день мы «чистим» сознание и структуру, во второй — собираем работающий софт на базе AI под ваши задачи.</p>
+                    </div>
+                </div>
+                <!-- FAQ Item 3 -->
+                <div class="faq-item border-b border-white/10 last:border-0">
+                    <button class="faq-toggle w-full py-8 flex items-center justify-between text-left group">
+                        <span class="text-xl md:text-2xl font-black group-hover:text-blue-400 transition-colors tracking-tight">Если у меня много проектов, это подойдёт?</span>
+                        <i data-lucide="chevron-down" class="faq-chevron transition-transform duration-300 text-blue-500" size="28"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p class="text-gray-400 text-xl font-medium leading-relaxed">Это создано именно для вас. Многозадачность — главный враг фокуса. AI-ассистент поможет держать все контексты под контролем.</p>
+                    </div>
+                </div>
+                <!-- FAQ Item 4 -->
+                <div class="faq-item border-b border-white/10 last:border-0">
+                    <button class="faq-toggle w-full py-8 flex items-center justify-between text-left group">
+                        <span class="text-xl md:text-2xl font-black group-hover:text-blue-400 transition-colors tracking-tight">Почему именно 16-17 февраля?</span>
+                        <i data-lucide="chevron-down" class="faq-chevron transition-transform duration-300 text-blue-500" size="28"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p class="text-gray-400 text-xl font-medium leading-relaxed">Мы используем энергию Новолуния. Это мощный природный драйвер для новых начинаний. Планирование в этот период дает кратно лучший результат.</p>
+                    </div>
+                </div>
+                <!-- FAQ Item 5 -->
+                <div class="faq-item border-b border-white/10 last:border-0">
+                    <button class="faq-toggle w-full py-8 flex items-center justify-between text-left group">
+                        <span class="text-xl md:text-2xl font-black group-hover:text-blue-400 transition-colors tracking-tight">Будет ли запись?</span>
+                        <i data-lucide="chevron-down" class="faq-chevron transition-transform duration-300 text-blue-500" size="28"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p class="text-gray-400 text-xl font-medium leading-relaxed">Да, запись будет доступна всем участникам бессрочно. Вы сможете освежить настройки системы в любой момент.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-20 px-6 border-t border-white/5 bg-black">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-12 mb-16">
+                <div class="flex items-center gap-3">
+                    <div class="w-12 h-12 bg-blue-600 rounded-2xl flex items-center justify-center shadow-xl shadow-blue-500/20">
+                        <i data-lucide="brain-circuit" class="text-white w-7 h-7"></i>
+                    </div>
+                    <span class="font-black text-2xl tracking-tighter uppercase">AI Lunar Focus</span>
+                </div>
+                <div class="flex flex-wrap justify-center gap-8 text-gray-400 font-bold uppercase tracking-widest text-xs">
+                    <a href="#" class="hover:text-white transition-colors">Instagram</a>
+                    <a href="#" class="hover:text-white transition-colors">Telegram Channel</a>
+                    <a href="#" class="hover:text-white transition-colors">YouTube</a>
+                    <a href="#" class="hover:text-white transition-colors">Contact Support</a>
+                </div>
+            </div>
+            <div class="flex flex-col md:flex-row items-center justify-between gap-6 pt-12 border-t border-white/5">
+                <p class="text-gray-600 text-sm font-medium">© 2024-2026 AI Lunar Focus Workshop. Designed for the bold.</p>
+                <div class="flex gap-8 text-gray-600 text-xs font-bold uppercase tracking-widest">
+                    <a href="#" class="hover:text-gray-400 transition-colors">Privacy Policy</a>
+                    <a href="#" class="hover:text-gray-400 transition-colors">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Sticky Mobile CTA -->
+    <div class="fixed bottom-6 left-6 right-6 z-40 md:hidden">
+        <a href="#pricing" class="block w-full py-5 bg-blue-600 text-white rounded-2xl font-black text-center shadow-2xl shadow-blue-500/50 uppercase tracking-widest text-sm">
+            Занять место — 89 €
+        </a>
+    </div>
+
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // FAQ Accordion Logic
+        document.querySelectorAll('.faq-toggle').forEach(button => {
+            button.addEventListener('click', () => {
+                const item = button.parentElement;
+                const isActive = item.classList.contains('active');
+                
+                // Close all other items
+                document.querySelectorAll('.faq-item').forEach(otherItem => {
+                    otherItem.classList.remove('active');
+                });
+                
+                // Toggle current item
+                if (!isActive) {
+                    item.classList.add('active');
+                }
+            });
+        });
+
+        // Simple smooth scroll enhancement if needed
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+<script type="module" src="/index.tsx"></script>
+</body>
+</html>

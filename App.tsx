@@ -18,6 +18,7 @@ import {
   Stars,
   Sun
 } from 'lucide-react';
+import { Analytics } from '@vercel/analytics/react';
 
 // UI Components
 const Navbar = () => (
@@ -612,6 +613,7 @@ const App: React.FC = () => {
       <Pricing />
       <FAQ />
       <Footer />
+      <Analytics />
       
       {/* Sticky CTA for mobile */}
       <div className="fixed bottom-6 left-6 right-6 z-40 md:hidden">

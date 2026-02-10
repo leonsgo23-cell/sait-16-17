@@ -617,12 +617,12 @@ const App: React.FC = () => {
       
       {/* Sticky CTA for mobile */}
       <div className="fixed bottom-6 left-6 right-6 z-40 md:hidden">
-        <a 
+       <a
   href="https://buy.stripe.com/6oU4gsd5fcBFgHc09U0ZW07"
   target="_blank"
   rel="noreferrer"
-  className="w-full sm:w-auto px-10 py-5 ..."
-        >
+  className="block w-full py-5 ..."
+>
           Занять место — 89 €
         </a>
       </div>

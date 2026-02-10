@@ -36,8 +36,9 @@ const Navbar = () => (
         <a href="#pricing" className="hover:text-white transition-colors">Стоимость</a>
       </div>
       <a 
-        href="#pricing" 
-        className="bg-white text-black px-4 py-2 rounded-full text-sm font-bold hover:bg-gray-200 transition-colors"
+        hhref="https://buy.stripe.com/6oU4gsd5fcBFgHc09U0ZW07"
+target="_blank"
+rel="noreferrer"
       >
         Участвовать
       </a>

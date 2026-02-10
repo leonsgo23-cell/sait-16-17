@@ -66,10 +66,12 @@ const Hero = () => (
         2 дня интенсивной работы, синхронизированной с природными ритмами. Выходим из хаоса в чёткую AI-систему на весь год.
       </p>
       <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-        <a 
-          href="#pricing" 
-          className="w-full sm:w-auto px-10 py-5 bg-blue-600 hover:bg-blue-700 text-white rounded-2xl font-black text-lg transition-all transform hover:scale-105 shadow-2xl shadow-blue-500/40 flex items-center justify-center gap-3"
-        >
+       <a
+  href="https://buy.stripe.com/6oU4gsd5fcBFgHc09U0ZW07"
+  target="_blank"
+  rel="noreferrer"
+  className="w-full sm:w-auto px-10 py-5 ..."
+      >
           Занять место на 16-17 февраля
           <ArrowRight size={20} />
         </a>
@@ -616,8 +618,10 @@ const App: React.FC = () => {
       {/* Sticky CTA for mobile */}
       <div className="fixed bottom-6 left-6 right-6 z-40 md:hidden">
         <a 
-          href="#pricing"
-          className="block w-full py-5 bg-blue-600 text-white rounded-2xl font-black text-center shadow-2xl shadow-blue-500/50 uppercase tracking-widest text-sm"
+  href="https://buy.stripe.com/6oU4gsd5fcBFgHc09U0ZW07"
+  target="_blank"
+  rel="noreferrer"
+  className="w-full sm:w-auto px-10 py-5 ..."
         >
           Занять место — 89 €
         </a>

@@ -493,9 +493,6 @@ const Pricing = () => (
           <div className="text-2xl text-gray-400 line-through font-bold">149 €</div>
           <div className="text-8xl font-black text-blue-600 leading-none">89 €</div>
         </div>
-        <p className="text-xl font-bold text-gray-700 mb-12 max-w-xl mx-auto">
-          Вы заходите с хаосом, а выходите с персональным ассистентом, который знает ваши цели на 2026.
-        </p>
         <button onClick={goToCheckout} className="w-full py-8 bg-black text-white rounded-3xl font-black text-3xl hover:bg-gray-800 transition-all shadow-2xl shadow-black/20 transform hover:scale-[1.02]">
           Зарегистрироваться
         </button>

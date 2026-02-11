@@ -270,7 +270,7 @@ const WhatYouGet = () => {
           {/* Additional Results (Gift) */}
           <div className="bg-gray-950/40 p-10 rounded-[3rem] border border-white/10 backdrop-blur-md">
             <h3 className="text-2xl font-bold mb-10 text-blue-200 flex items-center gap-3 leading-tight">
-               <PlusCircle className="text-blue-400" /> Дополнительный результат - Подарок: AI ассистент по достижению ваших целей
+               <PlusCircle className="text-blue-400" /> Дополнительный результат: AI ассистент по достижению ваших целей
             </h3>
             <div className="space-y-4 mb-10">
               {bonusItems.map((item, idx) => (
@@ -282,7 +282,7 @@ const WhatYouGet = () => {
             </div>
             <div className="bg-blue-900/30 p-8 rounded-3xl border border-blue-500/20">
               <p className="text-blue-200/60 italic mb-3 text-sm font-bold uppercase tracking-widest">Результат практикума:</p>
-              <p className="text-2xl font-black text-white leading-tight">Вы уходите с настроенной реальностью, а не с папкой конспектов.</p>
+              <p className="text-2xl font-black text-white leading-tight">У вас будет чёткий план на год</p>
             </div>
           </div>
         </div>
@@ -310,11 +310,11 @@ const Schedule = () => {
       title: "17 Февраля — Цели & Практика",
       subtitle: "День Рождения Системы",
       steps: [
-        "Синхронизируем цели с вашими ценностями",
-        "Настраиваем ежедневные сценарии работы с AI",
-        "Создаём набор готовых запросов под реальные задачи",
-        "Тестируем ассистента на ваших текущих делах",
-        "Доводим систему до состояния «полная готовность»"
+         "Синхронизируем цели с вашими ценностями",
+         "Выбор приоритета — определим главное направление",
+         "Сделаем декомпозицию цели на конкретные шаги",
+         "Построим финансовый план для достижения целей",
+         "Доводим систему до состояния «полная готовность»"
       ]
     }
   ];
@@ -323,8 +323,7 @@ const Schedule = () => {
     <section id="program" className="py-24 px-6 bg-gray-950">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-20">
-          <h2 className="text-4xl md:text-5xl font-black mb-4">Программа двух дней</h2>
-          <p className="text-gray-400 text-lg">Каждый день — это шаг к вашей новой эффективности</p>
+          <h2 className="text-4xl md:text-5xl font-black mb-4">Программа тренинга</h2>
         </div>
         <div className="grid md:grid-cols-2 gap-12">
           {days.map((item) => (
@@ -397,7 +396,7 @@ const WhyAI = () => (
       <div className="inline-block p-6 bg-blue-600/10 border border-blue-500/20 rounded-[2.5rem] mb-12 shadow-2xl shadow-blue-500/10">
         <BrainCircuit size={64} className="text-blue-500" />
       </div>
-      <h2 className="text-4xl md:text-5xl font-black mb-8 uppercase tracking-tighter">Почему это работает?</h2>
+      <h2 className="text-4xl md:text-5xl font-black mb-8 uppercase tracking-tighter">Как искусственный интеллект будет вам помогать?</h2>
       <div className="grid sm:grid-cols-3 gap-4 mb-16">
         <div className="p-6 bg-white/5 rounded-2xl border border-white/5 font-bold uppercase tracking-widest text-xs">AI не устаёт</div>
         <div className="p-6 bg-white/5 rounded-2xl border border-white/5 font-bold uppercase tracking-widest text-xs">Не забывает</div>
@@ -440,20 +439,20 @@ const Audience = () => (
           <h3 className="text-3xl font-black mb-10 flex items-center gap-4">
              <div className="w-12 h-12 bg-green-500/20 rounded-2xl flex items-center justify-center"><CheckCircle2 className="text-green-500" /></div> Подойдёт, если вы:
           </h3>
-          <ul className="space-y-6">
-            <li className="flex gap-4 text-lg text-gray-300 font-medium">
-               Предприниматель или руководитель с несколькими направлениями
-            </li>
-            <li className="flex gap-4 text-lg text-gray-300 font-medium">
-               Уже пользуетесь ChatGPT, но чувствуете, что используете его на 5%
-            </li>
-            <li className="flex gap-4 text-lg text-gray-300 font-medium">
-               Устали от постоянного ощущения «недоделанных дел»
-            </li>
-            <li className="flex gap-4 text-lg text-gray-300 font-medium">
-               Хотите навести порядок в голове через системную автоматизацию
-            </li>
-          </ul>
+           <ul className="space-y-6">
+             <li className="flex gap-4 text-lg text-gray-300 font-medium">
+                Предприниматель или руководитель с несколькими направлениями
+             </li>
+             <li className="flex gap-4 text-lg text-gray-300 font-medium">
+                Устали от постоянного ощущения «недоделанных дел»
+             </li>
+             <li className="flex gap-4 text-lg text-gray-300 font-medium">
+                Хотите навести порядок в голове через системную автоматизацию
+             </li>
+             <li className="flex gap-4 text-lg text-gray-300 font-medium">
+                Уже пользуетесь ChatGPT, но чувствуете, что используете его на 5%
+             </li>
+           </ul>
         </div>
         <div className="bg-red-500/5 border border-red-500/20 rounded-[3rem] p-12 relative overflow-hidden group">
           <div className="absolute top-0 right-0 p-8 opacity-5 group-hover:opacity-10 transition-opacity"><XCircle size={120} /></div>

@@ -561,7 +561,9 @@ const FAQ = () => {
   );
 };
 
-const Footer = () => (
+const Footer = () => {
+  const [showSupport, setShowSupport] = useState(false);
+  return (
   <footer className="py-20 px-6 border-t border-white/5 bg-black">
     <div className="max-w-7xl mx-auto">
       <div className="flex flex-col md:flex-row items-center justify-between gap-12 mb-16">
@@ -571,8 +573,15 @@ const Footer = () => (
           </div>
           <span className="font-black text-2xl tracking-tighter uppercase">AI Lunar Focus</span>
         </div>
-        <div className="flex flex-wrap justify-center gap-8 text-gray-400 font-bold uppercase tracking-widest text-xs">
-          <a href="#" className="hover:text-white transition-colors">Поддержка</a>
+        <div className="relative flex flex-wrap justify-center gap-8 text-gray-400 font-bold uppercase tracking-widest text-xs">
+          <button onClick={() => setShowSupport(!showSupport)} className="hover:text-white transition-colors cursor-pointer bg-transparent border-none text-gray-400 font-bold uppercase tracking-widest text-xs">Поддержка</button>
+          {showSupport && (
+            <div className="absolute bottom-full mb-3 bg-gray-900 border border-white/10 rounded-xl p-5 shadow-2xl text-left normal-case tracking-normal min-w-[250px]">
+              <p className="text-white font-bold text-sm mb-3">Связаться с нами</p>
+              <p className="text-gray-400 text-sm mb-2">📧 support@ailunarfocus.com</p>
+              <p className="text-gray-400 text-sm">📞 +49 123 456 7890</p>
+            </div>
+          )}
         </div>
       </div>
       <div className="flex flex-col md:flex-row items-center justify-between gap-6 pt-12 border-t border-white/5">
@@ -584,7 +593,8 @@ const Footer = () => (
       </div>
     </div>
   </footer>
-);
+  );
+};
 
 
 // Links from env (set in Vercel/Netlify)

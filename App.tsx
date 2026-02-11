@@ -575,9 +575,6 @@ const Footer = () => (
           <span className="font-black text-2xl tracking-tighter uppercase">AI Lunar Focus</span>
         </div>
         <div className="flex flex-wrap justify-center gap-8 text-gray-400 font-bold uppercase tracking-widest text-xs">
-          <a href="#" className="hover:text-white transition-colors">Instagram</a>
-          <a href={TELEGRAM_LINK ?? "#"} target={TELEGRAM_LINK ? "_blank" : undefined} rel={TELEGRAM_LINK ? "noreferrer" : undefined} className="hover:text-white transition-colors">Telegram</a>
-          <a href="#" className="hover:text-white transition-colors">YouTube</a>
           <a href="#" className="hover:text-white transition-colors">Поддержка</a>
         </div>
       </div>

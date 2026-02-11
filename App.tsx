@@ -62,27 +62,29 @@ const Hero = () => (
         Постановка целей и построение <span className="gradient-text">системы достижения</span>
       </h1>
       <p className="text-xl md:text-2xl text-gray-400 mb-10 max-w-2xl mx-auto leading-relaxed">
-        2 дня интенсивной работы, синхронизированной с природными ритмами. Выходим из хаоса в чёткую AI-систему на весь год.
+        Первый день — избавление от старого и мешающего.<br />
+        Второй день — построение планов и целей на весь год.<br />
+        <span className="text-blue-300 font-semibold">Бонус: Соберём AI-ассистента, который будет помогать достичь ваших целей весь год.</span>
       </p>
       <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
        <a
   href="https://buy.stripe.com/6oU4gsd5fcBFgHc09U0ZW07"
   target="_blank"
   rel="noreferrer"
-  className="w-full sm:w-auto px-10 py-5 ..."
+  className="w-full sm:w-auto inline-flex items-center gap-3 px-12 py-6 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-2xl font-black text-xl shadow-2xl shadow-blue-500/30 hover:shadow-blue-500/50 hover:scale-105 transition-all duration-300 border-2 border-blue-400/30 ring-2 ring-blue-500/20 animate-pulse"
       >
-          Занять место на 16-17 февраля
-          <ArrowRight size={20} />
+          📖 Забронировать место на 16-17 февраля
+          <ArrowRight size={24} />
         </a>
       </div>
       
       <div className="mt-20 relative">
         <div className="absolute -inset-1 bg-gradient-to-r from-blue-500/20 to-indigo-600/20 rounded-3xl blur-2xl opacity-50"></div>
         <div className="relative bg-gray-900/40 backdrop-blur-xl border border-white/10 rounded-3xl p-6 md:p-10 grid grid-cols-2 md:grid-cols-4 gap-6 items-center grayscale opacity-60">
-          <div className="flex flex-col items-center gap-2"><Target className="w-8 h-8 text-blue-400" /> <span className="text-xs uppercase font-bold tracking-widest">2026 Goals</span></div>
-          <div className="flex flex-col items-center gap-2"><Clock className="w-8 h-8 text-blue-400" /> <span className="text-xs uppercase font-bold tracking-widest">Daily Sprint</span></div>
-          <div className="flex flex-col items-center gap-2"><BrainCircuit className="w-8 h-8 text-blue-400" /> <span className="text-xs uppercase font-bold tracking-widest">AI Agent</span></div>
-          <div className="flex flex-col items-center gap-2"><Stars className="w-8 h-8 text-blue-400" /> <span className="text-xs uppercase font-bold tracking-widest">Lunar Rhythm</span></div>
+          <div className="flex flex-col items-center gap-2"><Target className="w-8 h-8 text-blue-400" /> <span className="text-xs uppercase font-bold tracking-widest">Цели 2026</span></div>
+          <div className="flex flex-col items-center gap-2"><Clock className="w-8 h-8 text-blue-400" /> <span className="text-xs uppercase font-bold tracking-widest">Ежедневный спринт</span></div>
+          <div className="flex flex-col items-center gap-2"><BrainCircuit className="w-8 h-8 text-blue-400" /> <span className="text-xs uppercase font-bold tracking-widest">AI Агент</span></div>
+          <div className="flex flex-col items-center gap-2"><Stars className="w-8 h-8 text-blue-400" /> <span className="text-xs uppercase font-bold tracking-widest">Лунный ритм</span></div>
         </div>
       </div>
     </div>
@@ -101,16 +103,16 @@ const LunarSection = () => (
             </h2>
             <div className="space-y-6">
               <div className="flex gap-4 p-6 bg-white/5 rounded-2xl border border-white/10">
-                <div className="w-12 h-12 shrink-0 bg-blue-500/20 rounded-full flex items-center justify-center text-blue-400 font-bold">16</div>
+                <div className="w-12 h-12 shrink-0 bg-blue-500/20 rounded-full flex items-center justify-center text-blue-400 font-bold text-sm">16.02</div>
                 <div>
-                  <h4 className="text-lg font-bold mb-1">День очищения (Темная Луна)</h4>
-                  <p className="text-gray-400 text-sm">Идеально для аудита прошлого года, избавления от лишнего и составления стоп-листа. Энергия на спаде помогает легко отпускать.</p>
+                  <h4 className="text-lg font-bold mb-1">День очищения (Тёмная Луна)</h4>
+                  <p className="text-gray-400 text-sm">Идеальное время для аудита прошлого года, избавления от лишнего и составления стоп-листа. Энергия на спаде помогает легко отпускать ненужное и то, что мешает.</p>
                 </div>
               </div>
               <div className="flex gap-4 p-6 bg-blue-600/20 rounded-2xl border border-blue-500/30 ring-1 ring-blue-500/20 shadow-lg shadow-blue-500/10">
-                <div className="w-12 h-12 shrink-0 bg-blue-500 rounded-full flex items-center justify-center text-white font-bold animate-pulse">17</div>
+                <div className="w-12 h-12 shrink-0 bg-blue-500 rounded-full flex items-center justify-center text-white font-bold animate-pulse text-sm">17.02</div>
                 <div>
-                  <h4 className="text-lg font-bold mb-1 text-blue-300">Рождение нового (Новолуние)</h4>
+                  <h4 className="text-lg font-bold mb-1 text-blue-300">Рождение нового (Новолуние. Китайский новый год)</h4>
                   <p className="text-blue-100/70 text-sm">Точка старта. Планы, заложенные в этот день, получают поддержку естественного цикла роста. Это фундамент на весь год.</p>
                 </div>
               </div>
@@ -567,14 +569,14 @@ const Footer = () => (
           <a href="#" className="hover:text-white transition-colors">Instagram</a>
           <a href={TELEGRAM_LINK ?? "#"} target={TELEGRAM_LINK ? "_blank" : undefined} rel={TELEGRAM_LINK ? "noreferrer" : undefined} className="hover:text-white transition-colors">Telegram</a>
           <a href="#" className="hover:text-white transition-colors">YouTube</a>
-          <a href="#" className="hover:text-white transition-colors">Contact Support</a>
+          <a href="#" className="hover:text-white transition-colors">Поддержка</a>
         </div>
       </div>
       <div className="flex flex-col md:flex-row items-center justify-between gap-6 pt-12 border-t border-white/5">
-        <p className="text-gray-600 text-sm font-medium">© 2024-2026 AI Lunar Focus Workshop. Designed for the bold.</p>
+        <p className="text-gray-600 text-sm font-medium">© 2024-2026 AI Lunar Focus Workshop. Создано для смелых.</p>
         <div className="flex gap-8 text-gray-600 text-xs font-bold uppercase tracking-widest">
-          <a href="#" className="hover:text-gray-400 transition-colors">Privacy Policy</a>
-          <a href="#" className="hover:text-gray-400 transition-colors">Terms of Service</a>
+          <a href="#" className="hover:text-gray-400 transition-colors">Политика конфиденциальности</a>
+          <a href="#" className="hover:text-gray-400 transition-colors">Условия использования</a>
         </div>
       </div>
     </div>

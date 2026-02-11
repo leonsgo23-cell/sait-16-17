@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { 
   CheckCircle2, 
@@ -21,32 +20,27 @@ import {
 
 // UI Components
 const Navbar = () => (
-  <nav className="fixed top-0 left-0 right-0 z-50 border-b border-white/5 bg-gray-950/80 backdrop-blur-md">
+  <nav className="fixed top-0 left-0 right-0 z-50 border-b border-border bg-background/80 backdrop-blur-md">
     <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
       <div className="flex items-center gap-2">
-        <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
-          <BrainCircuit className="text-white w-5 h-5" />
+        <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
+          <BrainCircuit className="text-primary-foreground w-5 h-5" />
         </div>
         <span className="font-bold text-xl tracking-tight tracking-wider uppercase text-[10px] sm:text-sm">Фокус с Аи</span>
       </div>
-      <div className="hidden md:flex items-center gap-8 text-sm text-gray-400 font-medium">
-        <a href="#problems" className="hover:text-white transition-colors">Проблема</a>
-        <a href="#lunar" className="hover:text-white transition-colors">Почему сейчас?</a>
-        <a href="#program" className="hover:text-white transition-colors">Программа</a>
-        <a href="#pricing" className="hover:text-white transition-colors">Стоимость</a>
+      <div className="hidden md:flex items-center gap-8 text-sm text-muted-foreground font-medium">
+        <a href="#problems" className="hover:text-foreground transition-colors">Проблема</a>
+        <a href="#lunar" className="hover:text-foreground transition-colors">Почему сейчас?</a>
+        <a href="#program" className="hover:text-foreground transition-colors">Программа</a>
+        <a href="#pricing" className="hover:text-foreground transition-colors">Стоимость</a>
       </div>
-<a
-  href="#pricing"
->
-  Участвовать
-</a>
+      <a href="#pricing">Участвовать</a>
     </div>
   </nav>
 );
 
 const Hero = () => (
   <section className="relative pt-32 pb-20 px-6 overflow-hidden">
-    {/* Lunar Glow Effects */}
     <div className="blur-glow bg-blue-500 w-[600px] h-[600px] -top-40 -left-40 opacity-10" />
     <div className="blur-glow bg-indigo-400 w-[500px] h-[500px] top-40 -right-20 opacity-20" />
     <div className="absolute top-20 right-[10%] opacity-20 animate-pulse">
@@ -61,18 +55,18 @@ const Hero = () => (
       <h1 className="text-5xl md:text-8xl font-extrabold mb-8 leading-[1] tracking-tighter">
         Постановка целей и построение <span className="gradient-text">системы достижения</span>
       </h1>
-      <p className="text-xl md:text-2xl text-gray-400 mb-10 max-w-2xl mx-auto leading-relaxed">
+      <p className="text-xl md:text-2xl text-muted-foreground mb-10 max-w-2xl mx-auto leading-relaxed">
         Первый день — избавление от старого и мешающего.<br />
         Второй день — построение планов и целей на весь год.<br />
         <span className="text-blue-300 font-semibold">Бонус: Соберём AI-ассистента, который будет помогать достичь ваших целей весь год.</span>
       </p>
       <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-       <a
-  href="https://buy.stripe.com/6oU4gsd5fcBFgHc09U0ZW07"
-  target="_blank"
-  rel="noreferrer"
-  className="w-full sm:w-auto inline-flex items-center gap-3 px-12 py-6 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-2xl font-black text-xl shadow-2xl shadow-blue-500/30 hover:shadow-blue-500/50 hover:scale-105 transition-all duration-300 border-2 border-blue-400/30 ring-2 ring-blue-500/20 animate-pulse"
-      >
+        <a
+          href="https://buy.stripe.com/6oU4gsd5fcBFgHc09U0ZW07"
+          target="_blank"
+          rel="noreferrer"
+          className="w-full sm:w-auto inline-flex items-center gap-3 px-12 py-6 bg-gradient-to-r from-primary to-secondary text-primary-foreground rounded-2xl font-black text-xl shadow-2xl shadow-blue-500/30 hover:shadow-blue-500/50 hover:scale-105 transition-all duration-300 border-2 border-blue-400/30 ring-2 ring-blue-500/20 animate-pulse"
+        >
           📖 Забронировать место на 16-17 февраля
           <ArrowRight size={24} />
         </a>
@@ -80,7 +74,7 @@ const Hero = () => (
       
       <div className="mt-20 relative">
         <div className="absolute -inset-1 bg-gradient-to-r from-blue-500/20 to-indigo-600/20 rounded-3xl blur-2xl opacity-50"></div>
-        <div className="relative bg-gray-900/40 backdrop-blur-xl border border-white/10 rounded-3xl p-6 md:p-10 grid grid-cols-2 md:grid-cols-4 gap-6 items-center grayscale opacity-60">
+        <div className="relative bg-gray-900/40 backdrop-blur-xl border border-border rounded-3xl p-6 md:p-10 grid grid-cols-2 md:grid-cols-4 gap-6 items-center grayscale opacity-60">
           <div className="flex flex-col items-center gap-2"><Target className="w-8 h-8 text-blue-400" /> <span className="text-xs uppercase font-bold tracking-widest">Цели 2026</span></div>
           <div className="flex flex-col items-center gap-2"><Clock className="w-8 h-8 text-blue-400" /> <span className="text-xs uppercase font-bold tracking-widest">Ежедневный спринт</span></div>
           <div className="flex flex-col items-center gap-2"><BrainCircuit className="w-8 h-8 text-blue-400" /> <span className="text-xs uppercase font-bold tracking-widest">AI Агент</span></div>
@@ -92,7 +86,7 @@ const Hero = () => (
 );
 
 const LunarSection = () => (
-  <section id="lunar" className="py-24 px-6 relative overflow-hidden border-y border-white/5 bg-[#050a18]">
+  <section id="lunar" className="py-24 px-6 relative overflow-hidden border-y border-border bg-[#050a18]">
     <div className="max-w-7xl mx-auto">
       <div className="grid lg:grid-cols-2 gap-16 items-center">
         <div className="relative">
@@ -102,15 +96,15 @@ const LunarSection = () => (
               Почему 16-17 февраля — <br /><span className="text-blue-400">идеальное время?</span>
             </h2>
             <div className="space-y-6">
-              <div className="flex gap-4 p-6 bg-white/5 rounded-2xl border border-white/10">
+              <div className="flex gap-4 p-6 bg-white/5 rounded-2xl border border-border">
                 <div className="w-12 h-12 shrink-0 bg-blue-500/20 rounded-full flex items-center justify-center text-blue-400 font-bold text-sm">16.02</div>
                 <div>
                   <h4 className="text-lg font-bold mb-1">День очищения (Тёмная Луна)</h4>
-                  <p className="text-gray-400 text-sm">Идеальное время для аудита прошлого года, избавления от лишнего и составления стоп-листа. Энергия на спаде помогает легко отпускать ненужное и то, что мешает.</p>
+                  <p className="text-muted-foreground text-sm">Идеальное время для аудита прошлого года, избавления от лишнего и составления стоп-листа. Энергия на спаде помогает легко отпускать ненужное и то, что мешает.</p>
                 </div>
               </div>
               <div className="flex gap-4 p-6 bg-blue-600/20 rounded-2xl border border-blue-500/30 ring-1 ring-blue-500/20 shadow-lg shadow-blue-500/10">
-                <div className="w-12 h-12 shrink-0 bg-blue-500 rounded-full flex items-center justify-center text-white font-bold animate-pulse text-sm">17.02</div>
+                <div className="w-12 h-12 shrink-0 bg-blue-500 rounded-full flex items-center justify-center text-foreground font-bold animate-pulse text-sm">17.02</div>
                 <div>
                   <h4 className="text-lg font-bold mb-1 text-blue-300">Рождение нового (Новолуние. Китайский новый год)</h4>
                   <p className="text-blue-100/70 text-sm">Точка старта. Планы, заложенные в этот день, получают поддержку естественного цикла роста. Это фундамент на весь год.</p>
@@ -120,25 +114,25 @@ const LunarSection = () => (
           </div>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          <div className="p-8 bg-gray-900 border border-white/5 rounded-3xl space-y-4 hover:border-blue-500/30 transition-all">
+          <div className="p-8 bg-gray-900 border border-border rounded-3xl space-y-4 hover:border-blue-500/30 transition-all">
             <Stars className="text-yellow-500" />
             <h5 className="font-bold">Биоритмы</h5>
-            <p className="text-gray-400 text-sm">Мозг лучше фокусируется на будущем, когда внешняя среда находится в фазе обновления.</p>
+            <p className="text-muted-foreground text-sm">Мозг лучше фокусируется на будущем, когда внешняя среда находится в фазе обновления.</p>
           </div>
-          <div className="p-8 bg-gray-900 border border-white/5 rounded-3xl space-y-4 hover:border-blue-500/30 transition-all">
+          <div className="p-8 bg-gray-900 border border-border rounded-3xl space-y-4 hover:border-blue-500/30 transition-all">
             <Sun className="text-orange-400" />
             <h5 className="font-bold">Лунный календарь</h5>
-            <p className="text-gray-400 text-sm">Планирование по фазам Луны помогает синхронизировать действия с естественными циклами энергии и продуктивности.</p>
+            <p className="text-muted-foreground text-sm">Планирование по фазам Луны помогает синхронизировать действия с естественными циклами энергии и продуктивности.</p>
           </div>
-          <div className="p-8 bg-gray-900 border border-white/5 rounded-3xl space-y-4 hover:border-blue-500/30 transition-all">
+          <div className="p-8 bg-gray-900 border border-border rounded-3xl space-y-4 hover:border-blue-500/30 transition-all">
             <BrainCircuit className="text-purple-400" />
             <h5 className="font-bold">Помощник с искусственным интеллектом</h5>
-            <p className="text-gray-400 text-sm">Будет знать ваши цели, напоминать о приоритетах и не даст вам слиться с намеченного пути.</p>
+            <p className="text-muted-foreground text-sm">Будет знать ваши цели, напоминать о приоритетах и не даст вам слиться с намеченного пути.</p>
           </div>
-          <div className="p-8 bg-gray-900 border border-white/5 rounded-3xl space-y-4 hover:border-blue-500/30 transition-all">
+          <div className="p-8 bg-gray-900 border border-border rounded-3xl space-y-4 hover:border-blue-500/30 transition-all">
             <Calendar className="text-green-400" />
             <h5 className="font-bold">Мощная связка</h5>
-            <p className="text-gray-400 text-sm">Осознание своих желаний, энергия вселенной и возможности искусственного интеллекта.</p>
+            <p className="text-muted-foreground text-sm">Осознание своих желаний, энергия вселенной и возможности искусственного интеллекта.</p>
           </div>
         </div>
       </div>
@@ -157,16 +151,16 @@ const Symptoms = () => {
   ];
 
   return (
-    <section id="problems" className="py-24 px-6 bg-gray-900/50">
+    <section id="problems" className="py-24 px-6 bg-card">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-5xl font-black mb-4 uppercase tracking-tighter">Вы узнаете себя, если…</h2>
-          <div className="w-20 h-1 bg-blue-600 mx-auto rounded-full"></div>
+          <div className="w-20 h-1 bg-primary mx-auto rounded-full"></div>
         </div>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {list.map((item, idx) => (
-            <div key={idx} className="p-6 bg-gray-800/40 border border-white/5 rounded-2xl flex items-start gap-4 hover:border-blue-500/30 transition-colors">
-              <XCircle className="text-red-400 shrink-0 mt-1" size={24} />
+            <div key={idx} className="p-6 bg-gray-800/40 border border-border rounded-2xl flex items-start gap-4 hover:border-blue-500/30 transition-colors">
+              <XCircle className="text-destructive shrink-0 mt-1" size={24} />
               <p className="text-gray-300 font-medium leading-relaxed">{item}</p>
             </div>
           ))}
@@ -180,29 +174,29 @@ const RealProblem = () => (
   <section className="py-24 px-6 relative">
     <div className="max-w-4xl mx-auto text-center">
       <h2 className="text-4xl md:text-5xl font-black mb-12">В чём реальная проблема?</h2>
-      <div className="space-y-8 text-xl text-gray-400">
+      <div className="space-y-8 text-xl text-muted-foreground">
         <p>
           Проблема не в нехватке времени. <br />
           И не в количестве задач.
         </p>
         <div className="p-10 bg-gradient-to-br from-blue-600/10 to-indigo-600/10 border border-blue-500/20 rounded-[3rem] text-left relative overflow-hidden group">
           <div className="absolute top-0 right-0 p-8 opacity-5 group-hover:opacity-10 transition-opacity"><ShieldCheck size={140} /></div>
-          <h3 className="text-white font-bold mb-8 text-3xl">Проблема в отсутствии внешней системы, которая:</h3>
+          <h3 className="text-foreground font-bold mb-8 text-3xl">Проблема в отсутствии внешней системы, которая:</h3>
           <ul className="space-y-6">
-            <li className="flex items-center gap-4 text-white text-lg">
-              <CheckCircle2 className="text-blue-500 shrink-0" size={24} /> Видит всю систему целиком
+            <li className="flex items-center gap-4 text-foreground text-lg">
+              <CheckCircle2 className="text-primary shrink-0" size={24} /> Видит всю систему целиком
             </li>
-            <li className="flex items-center gap-4 text-white text-lg">
-              <CheckCircle2 className="text-blue-500 shrink-0" size={24} /> Между задачами и направлениями
+            <li className="flex items-center gap-4 text-foreground text-lg">
+              <CheckCircle2 className="text-primary shrink-0" size={24} /> Между задачами и направлениями
             </li>
-            <li className="flex items-center gap-4 text-white text-lg">
-              <CheckCircle2 className="text-blue-500 shrink-0" size={24} /> Удерживает фокус на главном
+            <li className="flex items-center gap-4 text-foreground text-lg">
+              <CheckCircle2 className="text-primary shrink-0" size={24} /> Удерживает фокус на главном
             </li>
-            <li className="flex items-center gap-4 text-white text-lg">
-              <CheckCircle2 className="text-blue-500 shrink-0" size={24} /> Анализирует твои результаты
+            <li className="flex items-center gap-4 text-foreground text-lg">
+              <CheckCircle2 className="text-primary shrink-0" size={24} /> Анализирует твои результаты
             </li>
-            <li className="flex items-center gap-4 text-white text-lg">
-              <CheckCircle2 className="text-blue-500 shrink-0" size={24} /> Даёт рекомендации для следующих шагов
+            <li className="flex items-center gap-4 text-foreground text-lg">
+              <CheckCircle2 className="text-primary shrink-0" size={24} /> Даёт рекомендации для следующих шагов
             </li>
           </ul>
         </div>
@@ -236,14 +230,14 @@ const WhatYouGet = () => {
   ];
 
   return (
-    <section className="py-24 px-6 bg-blue-600 relative overflow-hidden">
+    <section className="py-24 px-6 bg-primary relative overflow-hidden">
       <div className="absolute top-0 right-0 w-full h-full opacity-10 pointer-events-none">
         <div className="absolute top-[-10%] right-[-10%] w-[500px] h-[500px] bg-white rounded-full blur-[120px]"></div>
       </div>
       
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-6xl font-black mb-4 text-white tracking-tighter">
+          <h2 className="text-4xl md:text-6xl font-black mb-4 text-primary-foreground tracking-tighter">
             Что вы получите за 2 дня
           </h2>
           <p className="text-blue-100 text-xl font-medium max-w-4xl mx-auto leading-relaxed">
@@ -252,23 +246,21 @@ const WhatYouGet = () => {
         </div>
         
         <div className="grid lg:grid-cols-2 gap-12">
-          {/* Main Program */}
           <div className="bg-white/10 p-10 rounded-[3rem] border border-white/20 backdrop-blur-xl shadow-2xl">
-            <h3 className="text-3xl font-black mb-10 text-white flex items-center gap-3">
-               <Target className="text-white" size={32} /> Основная программа
+            <h3 className="text-3xl font-black mb-10 text-primary-foreground flex items-center gap-3">
+               <Target className="text-primary-foreground" size={32} /> Основная программа
             </h3>
             <div className="space-y-4">
               {mainItems.map((item, idx) => (
                 <div key={idx} className="flex items-start gap-4 bg-white/5 p-5 rounded-2xl border border-white/10 hover:bg-white/20 transition-all transform hover:-translate-x-1">
-                  <CheckCircle2 className="text-white mt-1 shrink-0" size={24} />
-                  <span className="text-white font-bold text-lg">{item}</span>
+                  <CheckCircle2 className="text-primary-foreground mt-1 shrink-0" size={24} />
+                  <span className="text-primary-foreground font-bold text-lg">{item}</span>
                 </div>
               ))}
             </div>
           </div>
 
-          {/* Additional Results (Gift) */}
-          <div className="bg-gray-950/40 p-10 rounded-[3rem] border border-white/10 backdrop-blur-md">
+          <div className="bg-gray-950/40 p-10 rounded-[3rem] border border-border backdrop-blur-md">
             <h3 className="text-2xl font-bold mb-10 text-blue-200 flex items-center gap-3 leading-tight">
                <PlusCircle className="text-blue-400" /> Дополнительный результат: AI ассистент по достижению ваших целей
             </h3>
@@ -282,7 +274,7 @@ const WhatYouGet = () => {
             </div>
             <div className="bg-blue-900/30 p-8 rounded-3xl border border-blue-500/20">
               <p className="text-blue-200/60 italic mb-3 text-sm font-bold uppercase tracking-widest">Результат практикума:</p>
-              <p className="text-2xl font-black text-white leading-tight">У вас будет чёткий план на год</p>
+              <p className="text-2xl font-black text-foreground leading-tight">У вас будет чёткий план на год</p>
             </div>
           </div>
         </div>
@@ -327,9 +319,9 @@ const Schedule = () => {
         </div>
         <div className="grid md:grid-cols-2 gap-12">
           {days.map((item) => (
-            <div key={item.day} className="bg-gray-900/50 border border-white/5 rounded-[3rem] p-10 relative hover:border-blue-500/50 transition-all group overflow-hidden">
+            <div key={item.day} className="bg-card border border-border rounded-[3rem] p-10 relative hover:border-blue-500/50 transition-all group overflow-hidden">
               <div className="absolute top-0 right-0 w-32 h-32 bg-blue-600/5 rounded-full blur-3xl group-hover:bg-blue-600/10 transition-colors"></div>
-              <div className="inline-block px-5 py-2 bg-blue-600 rounded-full text-xs font-black uppercase tracking-widest shadow-xl mb-6">
+              <div className="inline-block px-5 py-2 bg-primary rounded-full text-xs font-black uppercase tracking-widest shadow-xl mb-6">
                 Этап {item.day}
               </div>
               <h3 className="text-3xl font-black mb-2 group-hover:text-blue-400 transition-colors leading-tight">{item.title}</h3>
@@ -337,7 +329,7 @@ const Schedule = () => {
               <ul className="space-y-6">
                 {item.steps.map((step, sIdx) => (
                   <li key={sIdx} className="flex items-start gap-4">
-                    <div className="w-8 h-8 rounded-full bg-gray-800 border border-white/10 flex items-center justify-center shrink-0 mt-0.5 text-sm font-black text-blue-500">
+                    <div className="w-8 h-8 rounded-full bg-muted border border-border flex items-center justify-center shrink-0 mt-0.5 text-sm font-black text-primary">
                       {sIdx + 1}
                     </div>
                     <p className="text-gray-300 text-lg leading-relaxed">{step}</p>
@@ -362,26 +354,26 @@ const Outcomes = () => {
   ];
 
   return (
-    <section className="py-24 px-6 border-y border-white/5 bg-[#030712]">
+    <section className="py-24 px-6 border-y border-border bg-background">
       <div className="max-w-7xl mx-auto">
-        <div className="bg-gradient-to-br from-blue-900/20 to-purple-900/10 rounded-[4rem] p-12 md:p-20 border border-white/5 relative overflow-hidden">
+        <div className="bg-gradient-to-br from-blue-900/20 to-purple-900/10 rounded-[4rem] p-12 md:p-20 border border-border relative overflow-hidden">
           <div className="absolute top-0 right-0 p-10 opacity-5"><Stars size={200} /></div>
           <div className="text-center mb-16 relative z-10">
             <h2 className="text-4xl md:text-6xl font-black mb-4 tracking-tighter">Что изменится через 30 дней</h2>
-            <div className="w-24 h-1.5 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto rounded-full"></div>
+            <div className="w-24 h-1.5 bg-gradient-to-r from-primary to-purple-600 mx-auto rounded-full"></div>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 relative z-10">
             {items.map((item, idx) => (
-              <div key={idx} className="flex flex-col gap-6 p-8 bg-white/5 rounded-[2rem] border border-white/5 hover:border-blue-500/20 transition-all">
+              <div key={idx} className="flex flex-col gap-6 p-8 bg-white/5 rounded-[2rem] border border-border hover:border-blue-500/20 transition-all">
                 <div className="w-14 h-14 bg-blue-500/10 rounded-2xl flex items-center justify-center border border-blue-500/20">
                   <Calendar className="text-blue-400" size={28} />
                 </div>
                 <p className="text-xl font-bold leading-tight">{item}</p>
               </div>
             ))}
-            <div className="flex flex-col justify-center p-10 bg-gradient-to-br from-blue-600 to-indigo-700 rounded-[2rem] shadow-2xl shadow-blue-500/20">
+            <div className="flex flex-col justify-center p-10 bg-gradient-to-br from-primary to-secondary rounded-[2rem] shadow-2xl shadow-blue-500/20">
                <Stars className="text-white/50 mb-4" />
-               <p className="text-2xl font-black text-white leading-tight">Появляется ощущение тотального контроля и порядка в голове.</p>
+               <p className="text-2xl font-black text-primary-foreground leading-tight">Появляется ощущение тотального контроля и порядка в голове.</p>
             </div>
           </div>
         </div>
@@ -394,44 +386,44 @@ const WhyAI = () => (
   <section className="py-24 px-6 relative overflow-hidden bg-gray-950">
     <div className="max-w-4xl mx-auto text-center relative z-10">
       <div className="inline-block p-6 bg-blue-600/10 border border-blue-500/20 rounded-[2.5rem] mb-12 shadow-2xl shadow-blue-500/10">
-        <BrainCircuit size={64} className="text-blue-500" />
+        <BrainCircuit size={64} className="text-primary" />
       </div>
       <h2 className="text-4xl md:text-5xl font-black mb-8 uppercase tracking-tighter">Как искусственный интеллект будет вам помогать?</h2>
       <div className="grid sm:grid-cols-3 gap-4 mb-16">
-        <div className="p-6 bg-white/5 rounded-2xl border border-white/5 font-bold uppercase tracking-widest text-xs">AI не устаёт</div>
-        <div className="p-6 bg-white/5 rounded-2xl border border-white/5 font-bold uppercase tracking-widest text-xs">Не забывает</div>
-        <div className="p-6 bg-white/5 rounded-2xl border border-white/5 font-bold uppercase tracking-widest text-xs">Не отвлекается</div>
+        <div className="p-6 bg-white/5 rounded-2xl border border-border font-bold uppercase tracking-widest text-xs">AI не устаёт</div>
+        <div className="p-6 bg-white/5 rounded-2xl border border-border font-bold uppercase tracking-widest text-xs">Не забывает</div>
+        <div className="p-6 bg-white/5 rounded-2xl border border-border font-bold uppercase tracking-widest text-xs">Не отвлекается</div>
       </div>
-      <div className="space-y-8 text-xl text-gray-400 leading-relaxed mb-16">
+      <div className="space-y-8 text-xl text-muted-foreground leading-relaxed mb-16">
         <p className="text-2xl font-medium">Вы превращаете его в персонального ассистента, который:</p>
         <div className="max-w-2xl mx-auto text-left space-y-5">
-          <div className="flex items-center gap-4 text-white p-5 bg-white/5 rounded-2xl border border-white/5 hover:bg-white/10 transition-all">
-            <CheckCircle2 className="text-blue-500 shrink-0" size={24} /> 
+          <div className="flex items-center gap-4 text-foreground p-5 bg-white/5 rounded-2xl border border-border hover:bg-white/10 transition-all">
+            <CheckCircle2 className="text-primary shrink-0" size={24} /> 
             <span className="font-bold">Хранит вашу уникальную годовую структуру</span>
           </div>
-          <div className="flex items-center gap-4 text-white p-5 bg-white/5 rounded-2xl border border-white/5 hover:bg-white/10 transition-all">
-            <CheckCircle2 className="text-blue-500 shrink-0" size={24} /> 
+          <div className="flex items-center gap-4 text-foreground p-5 bg-white/5 rounded-2xl border border-border hover:bg-white/10 transition-all">
+            <CheckCircle2 className="text-primary shrink-0" size={24} /> 
             <span className="font-bold">Знает все ваши проекты и реальные приоритеты</span>
           </div>
-          <div className="flex items-center gap-4 text-white p-5 bg-white/5 rounded-2xl border border-white/5 hover:bg-white/10 transition-all">
-            <CheckCircle2 className="text-blue-500 shrink-0" size={24} /> 
+          <div className="flex items-center gap-4 text-foreground p-5 bg-white/5 rounded-2xl border border-border hover:bg-white/10 transition-all">
+            <CheckCircle2 className="text-primary shrink-0" size={24} /> 
             <span className="font-bold">Каждый день возвращает вас к самому главному</span>
           </div>
-          <div className="flex items-center gap-4 text-white p-5 bg-white/5 rounded-2xl border border-white/5 hover:bg-white/10 transition-all">
-            <CheckCircle2 className="text-blue-500 shrink-0" size={24} /> 
+          <div className="flex items-center gap-4 text-foreground p-5 bg-white/5 rounded-2xl border border-border hover:bg-white/10 transition-all">
+            <CheckCircle2 className="text-primary shrink-0" size={24} /> 
             <span className="font-bold">Помогает разбирать входящий хаос без стресса</span>
           </div>
         </div>
       </div>
-      <div className="p-10 bg-white/5 border border-white/10 rounded-[3rem] backdrop-blur-md">
-        <p className="text-3xl font-black text-white">Это не теория. Это калибровка вашей реальности под возможности будущего.</p>
+      <div className="p-10 bg-white/5 border border-border rounded-[3rem] backdrop-blur-md">
+        <p className="text-3xl font-black text-foreground">Это не теория. Это калибровка вашей реальности под возможности будущего.</p>
       </div>
     </div>
   </section>
 );
 
 const Audience = () => (
-  <section className="py-24 px-6 bg-[#030712]">
+  <section className="py-24 px-6 bg-background">
     <div className="max-w-7xl mx-auto">
       <div className="grid md:grid-cols-2 gap-8">
         <div className="bg-green-500/5 border border-green-500/20 rounded-[3rem] p-12 relative overflow-hidden group">
@@ -476,22 +468,26 @@ const Audience = () => (
   </section>
 );
 
+const goToCheckout = () => {
+  window.open("https://buy.stripe.com/6oU4gsd5fcBFgHc09U0ZW07", "_blank");
+};
+
 const Pricing = () => (
   <section id="pricing" className="py-32 px-6 relative">
-    <div className="blur-glow bg-blue-600 w-[400px] h-[400px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-20" />
+    <div className="blur-glow bg-primary w-[400px] h-[400px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-20" />
     <div className="max-w-4xl mx-auto text-center relative z-10">
       <div className="bg-white text-black p-12 md:p-20 rounded-[4rem] shadow-2xl relative overflow-hidden transform hover:-rotate-1 transition-transform border-[12px] border-white/10">
         <div className="absolute top-0 right-0 p-12 opacity-5">
           <BrainCircuit size={160} />
         </div>
-        <div className="inline-block px-6 py-2 bg-blue-600 text-white rounded-full text-sm font-black uppercase tracking-[0.2em] mb-8">
+        <div className="inline-block px-6 py-2 bg-primary text-primary-foreground rounded-full text-sm font-black uppercase tracking-[0.2em] mb-8">
           16-17 Февраля
         </div>
         <h2 className="text-3xl font-black mb-4 uppercase tracking-tighter text-gray-500">Двухдневный Практикум</h2>
         <h3 className="text-4xl md:text-5xl font-black mb-10 leading-tight">Постановка целей и построение <br />системы достижения</h3>
         <div className="flex items-center justify-center gap-4 mb-10">
           <div className="text-2xl text-gray-400 line-through font-bold">149 €</div>
-          <div className="text-8xl font-black text-blue-600 leading-none">89 €</div>
+          <div className="text-8xl font-black text-primary leading-none">89 €</div>
         </div>
         <button onClick={goToCheckout} className="w-full py-8 bg-black text-white rounded-3xl font-black text-3xl hover:bg-gray-800 transition-all shadow-2xl shadow-black/20 transform hover:scale-[1.02]">
           Зарегистрироваться
@@ -504,16 +500,16 @@ const Pricing = () => (
 const FAQItem: React.FC<{ question: string; answer: string }> = ({ question, answer }) => {
   const [isOpen, setIsOpen] = useState(false);
   return (
-    <div className="border-b border-white/10 last:border-0">
+    <div className="border-b border-border last:border-0">
       <button 
         onClick={() => setIsOpen(!isOpen)}
         className="w-full py-8 flex items-center justify-between text-left group"
       >
         <span className="text-xl md:text-2xl font-black group-hover:text-blue-400 transition-colors tracking-tight">{question}</span>
-        <ChevronDown className={`transition-transform duration-300 text-blue-500 ${isOpen ? 'rotate-180' : ''}`} size={28} />
+        <ChevronDown className={`transition-transform duration-300 text-primary ${isOpen ? 'rotate-180' : ''}`} size={28} />
       </button>
       <div className={`overflow-hidden transition-all duration-500 ease-in-out ${isOpen ? 'max-h-96 pb-8 opacity-100' : 'max-h-0 opacity-0'}`}>
-        <p className="text-gray-400 text-xl font-medium leading-relaxed">{answer}</p>
+        <p className="text-muted-foreground text-xl font-medium leading-relaxed">{answer}</p>
       </div>
     </div>
   );
@@ -564,31 +560,31 @@ const FAQ = () => {
 const Footer = () => {
   const [showSupport, setShowSupport] = useState(false);
   return (
-  <footer className="py-20 px-6 border-t border-white/5 bg-black">
+  <footer className="py-20 px-6 border-t border-border bg-black">
     <div className="max-w-7xl mx-auto">
       <div className="flex flex-col md:flex-row items-center justify-between gap-12 mb-16">
         <div className="flex items-center gap-3">
-          <div className="w-12 h-12 bg-blue-600 rounded-2xl flex items-center justify-center shadow-xl shadow-blue-500/20">
-            <BrainCircuit className="text-white w-7 h-7" />
+          <div className="w-12 h-12 bg-primary rounded-2xl flex items-center justify-center shadow-xl shadow-blue-500/20">
+            <BrainCircuit className="text-primary-foreground w-7 h-7" />
           </div>
           <span className="font-black text-2xl tracking-tighter uppercase">Фокус с Аи</span>
         </div>
-        <div className="relative flex flex-wrap justify-center gap-8 text-gray-400 font-bold uppercase tracking-widest text-xs">
-          <button onClick={() => setShowSupport(!showSupport)} className="hover:text-white transition-colors cursor-pointer bg-transparent border-none text-gray-400 font-bold uppercase tracking-widest text-xs">Поддержка</button>
+        <div className="relative flex flex-wrap justify-center gap-8 text-muted-foreground font-bold uppercase tracking-widest text-xs">
+          <button onClick={() => setShowSupport(!showSupport)} className="hover:text-foreground transition-colors cursor-pointer bg-transparent border-none text-muted-foreground font-bold uppercase tracking-widest text-xs">Поддержка</button>
           {showSupport && (
-            <div className="absolute bottom-full mb-3 bg-gray-900 border border-white/10 rounded-xl p-5 shadow-2xl text-left normal-case tracking-normal min-w-[250px]">
-              <p className="text-white font-bold text-sm mb-3">Связаться с нами</p>
-              <p className="text-gray-400 text-sm mb-2">📧 support@ailunarfocus.com</p>
-              <p className="text-gray-400 text-sm">📞 +49 123 456 7890</p>
+            <div className="absolute bottom-full mb-3 bg-gray-900 border border-border rounded-xl p-5 shadow-2xl text-left normal-case tracking-normal min-w-[250px]">
+              <p className="text-foreground font-bold text-sm mb-3">Связаться с нами</p>
+              <p className="text-muted-foreground text-sm mb-2">📧 support@ailunarfocus.com</p>
+              <p className="text-muted-foreground text-sm">📞 +49 123 456 7890</p>
             </div>
           )}
         </div>
       </div>
-      <div className="flex flex-col md:flex-row items-center justify-between gap-6 pt-12 border-t border-white/5">
+      <div className="flex flex-col md:flex-row items-center justify-between gap-6 pt-12 border-t border-border">
         <p className="text-gray-600 text-sm font-medium">© 2024-2026 Фокус с Аи. Создано для смелых.</p>
         <div className="flex gap-8 text-gray-600 text-xs font-bold uppercase tracking-widest">
-          <a href="#" className="hover:text-gray-400 transition-colors">Политика конфиденциальности</a>
-          <a href="#" className="hover:text-gray-400 transition-colors">Условия использования</a>
+          <a href="#" className="hover:text-muted-foreground transition-colors">Политика конфиденциальности</a>
+          <a href="#" className="hover:text-muted-foreground transition-colors">Условия использования</a>
         </div>
       </div>
     </div>
@@ -596,18 +592,9 @@ const Footer = () => {
   );
 };
 
-
-// Links from env (set in Vercel/Netlify)
-const STRIPE_PAYMENT_LINK = (import.meta as any).env?.VITE_STRIPE_PAYMENT_LINK as string | undefined;
-const TELEGRAM_LINK = (import.meta as any).env?.VITE_TELEGRAM_LINK as string | undefined;
-
-const goToCheckout = () => {
-  window.open("https://buy.stripe.com/6oU4gsd5fcBFgHc09U0ZW07", "_blank");
-};
-
 const App: React.FC = () => {
   return (
-    <div className="min-h-screen bg-[#030712] text-white overflow-x-hidden">
+    <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
       <Navbar />
       <Hero />
       <LunarSection />
@@ -624,12 +611,12 @@ const App: React.FC = () => {
       
       {/* Sticky CTA for mobile */}
       <div className="fixed bottom-6 left-6 right-6 z-40 md:hidden">
-       <a
-  href="https://buy.stripe.com/6oU4gsd5fcBFgHc09U0ZW07"
-  target="_blank"
-  rel="noreferrer"
-  className="block w-full py-5 ..."
->
+        <a
+          href="https://buy.stripe.com/6oU4gsd5fcBFgHc09U0ZW07"
+          target="_blank"
+          rel="noreferrer"
+          className="block w-full py-5 bg-gradient-to-r from-primary to-secondary text-primary-foreground rounded-2xl font-black text-lg text-center shadow-2xl"
+        >
           Занять место — 89 €
         </a>
       </div>

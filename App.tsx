@@ -488,7 +488,7 @@ const Pricing = () => (
           16-17 Февраля
         </div>
         <h2 className="text-3xl font-black mb-4 uppercase tracking-tighter text-gray-500">Двухдневный Практикум</h2>
-        <h3 className="text-4xl md:text-5xl font-black mb-10 leading-tight">Постановка целей <br />& Построение AI-системы</h3>
+        <h3 className="text-4xl md:text-5xl font-black mb-10 leading-tight">Постановка целей и построение <br />системы достижения</h3>
         <div className="flex items-center justify-center gap-4 mb-10">
           <div className="text-2xl text-gray-400 line-through font-bold">149 €</div>
           <div className="text-8xl font-black text-blue-600 leading-none">89 €</div>

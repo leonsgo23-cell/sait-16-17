@@ -27,7 +27,7 @@ const Navbar = () => (
         <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
           <BrainCircuit className="text-white w-5 h-5" />
         </div>
-        <span className="font-bold text-xl tracking-tight tracking-wider uppercase text-[10px] sm:text-sm">AI Lunar Focus</span>
+        <span className="font-bold text-xl tracking-tight tracking-wider uppercase text-[10px] sm:text-sm">Фокус с Аи</span>
       </div>
       <div className="hidden md:flex items-center gap-8 text-sm text-gray-400 font-medium">
         <a href="#problems" className="hover:text-white transition-colors">Проблема</a>
@@ -571,7 +571,7 @@ const Footer = () => {
           <div className="w-12 h-12 bg-blue-600 rounded-2xl flex items-center justify-center shadow-xl shadow-blue-500/20">
             <BrainCircuit className="text-white w-7 h-7" />
           </div>
-          <span className="font-black text-2xl tracking-tighter uppercase">AI Lunar Focus</span>
+          <span className="font-black text-2xl tracking-tighter uppercase">Фокус с Аи</span>
         </div>
         <div className="relative flex flex-wrap justify-center gap-8 text-gray-400 font-bold uppercase tracking-widest text-xs">
           <button onClick={() => setShowSupport(!showSupport)} className="hover:text-white transition-colors cursor-pointer bg-transparent border-none text-gray-400 font-bold uppercase tracking-widest text-xs">Поддержка</button>
@@ -585,7 +585,7 @@ const Footer = () => {
         </div>
       </div>
       <div className="flex flex-col md:flex-row items-center justify-between gap-6 pt-12 border-t border-white/5">
-        <p className="text-gray-600 text-sm font-medium">© 2024-2026 AI Lunar Focus Workshop. Создано для смелых.</p>
+        <p className="text-gray-600 text-sm font-medium">© 2024-2026 Фокус с Аи. Создано для смелых.</p>
         <div className="flex gap-8 text-gray-600 text-xs font-bold uppercase tracking-widest">
           <a href="#" className="hover:text-gray-400 transition-colors">Политика конфиденциальности</a>
           <a href="#" className="hover:text-gray-400 transition-colors">Условия использования</a>

@@ -1,5 +1,6 @@
 
 import React, { useState } from 'react';
+const authorPhoto = '/images/author-photo.png';
 import { 
   CheckCircle2, 
   XCircle, 
@@ -377,8 +378,8 @@ const Author = () => {
         <div className="grid lg:grid-cols-5 gap-12 items-start">
           {/* Author Info */}
           <div className="lg:col-span-2 flex flex-col items-center text-center">
-            <div className="w-40 h-40 rounded-full bg-gradient-to-br from-blue-600 to-indigo-700 flex items-center justify-center mb-6 shadow-2xl shadow-blue-500/30 border-4 border-blue-400/30">
-              <span className="text-5xl font-black text-white">АО</span>
+            <div className="w-40 h-40 rounded-full overflow-hidden mb-6 shadow-2xl shadow-blue-500/30 border-4 border-blue-400/30">
+              <img src={authorPhoto} alt="Александр Обулевич" className="w-full h-full object-cover" />
             </div>
             <h3 className="text-3xl font-black mb-2">Александр Обулевич</h3>
             <p className="text-blue-400 font-bold text-lg mb-6">Бизнес-коуч • Серийный предприниматель</p>

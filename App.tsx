@@ -16,6 +16,9 @@ import {
   PlusCircle,
   Moon,
   Stars,
+  Award,
+  Globe,
+  GraduationCap,
   Sun
 } from 'lucide-react';
 
@@ -352,6 +355,61 @@ const Schedule = () => {
   );
 };
 
+const Author = () => {
+  const achievements = [
+    { icon: <Globe className="text-blue-400" size={24} />, text: "Выручка проектов более 10 млн € и 100 000+ пользователей по всему миру" },
+    { icon: <GraduationCap className="text-purple-400" size={24} />, text: "Образование в области психологии, коучинга, НЛП и эриксоновского гипноза" },
+    { icon: <Award className="text-yellow-400" size={24} />, text: "Авторская программа достижения целей: 80% участников достигают целей за 60 дней" },
+    { icon: <Users className="text-green-400" size={24} />, text: "Физические офисы в 5 странах, обучение предпринимателей из разных стран" },
+  ];
+
+  return (
+    <section className="py-24 px-6 bg-[#050a18] relative overflow-hidden">
+      <div className="absolute top-0 left-0 w-full h-full">
+        <div className="blur-glow bg-blue-500 w-[400px] h-[400px] -top-20 -right-20 opacity-10" />
+      </div>
+      <div className="max-w-7xl mx-auto relative z-10">
+        <div className="text-center mb-16">
+          <h2 className="text-4xl md:text-5xl font-black tracking-tighter mb-4">Кто ведёт практикум</h2>
+          <div className="w-20 h-1 bg-blue-600 mx-auto rounded-full"></div>
+        </div>
+        
+        <div className="grid lg:grid-cols-5 gap-12 items-start">
+          {/* Author Info */}
+          <div className="lg:col-span-2 flex flex-col items-center text-center">
+            <div className="w-40 h-40 rounded-full bg-gradient-to-br from-blue-600 to-indigo-700 flex items-center justify-center mb-6 shadow-2xl shadow-blue-500/30 border-4 border-blue-400/30">
+              <span className="text-5xl font-black text-white">АО</span>
+            </div>
+            <h3 className="text-3xl font-black mb-2">Александр Обулевич</h3>
+            <p className="text-blue-400 font-bold text-lg mb-6">Бизнес-коуч • Серийный предприниматель</p>
+            <p className="text-gray-400 leading-relaxed">
+              Многолетний предпринимательский опыт и глубокое образование позволяют видеть слабые и сильные стороны бизнес-проектов, находить точки кратного роста и выстраивать стратегию масштабирования.
+            </p>
+          </div>
+
+          {/* Achievements */}
+          <div className="lg:col-span-3 space-y-5">
+            {achievements.map((item, idx) => (
+              <div key={idx} className="flex items-start gap-5 p-6 bg-white/5 rounded-2xl border border-white/10 hover:border-blue-500/30 transition-all">
+                <div className="w-12 h-12 shrink-0 bg-white/5 rounded-xl flex items-center justify-center">
+                  {item.icon}
+                </div>
+                <p className="text-gray-200 font-medium text-lg leading-relaxed">{item.text}</p>
+              </div>
+            ))}
+            
+            <div className="p-6 bg-gradient-to-r from-blue-600/20 to-indigo-600/20 rounded-2xl border border-blue-500/20">
+              <p className="text-blue-200 font-bold text-lg leading-relaxed">
+                🎯 Сейчас вместе с партнёрами строит международную сеть Арт Студий — цель на 2026: 100 студий по всему миру.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
 const Outcomes = () => {
   const items = [
     "Чётко работаете по годовой структуре",
@@ -614,6 +672,7 @@ const App: React.FC = () => {
       <RealProblem />
       <WhatYouGet />
       <Schedule />
+      <Author />
       <Outcomes />
       <WhyAI />
       <Audience />

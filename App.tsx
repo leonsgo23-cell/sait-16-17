@@ -1,5 +1,6 @@
 
 import React, { useState } from 'react';
+import { supabase } from './src/integrations/supabase/client';
 const authorPhoto = '/images/author-photo.png';
 import { 
   CheckCircle2, 
@@ -656,6 +657,86 @@ const Footer = () => {
 };
 
 
+const ContactForm = () => {
+  const [email, setEmail] = useState('');
+  const [phone, setPhone] = useState('');
+  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+  const [errorMsg, setErrorMsg] = useState('');
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setStatus('loading');
+    setErrorMsg('');
+
+    try {
+      const { data, error } = await supabase.functions.invoke('send-contact', {
+        body: { email, phone },
+      });
+
+      if (error) throw error;
+      if (data?.error) throw new Error(data.error);
+
+      setStatus('success');
+      setEmail('');
+      setPhone('');
+    } catch (err: any) {
+      setStatus('error');
+      setErrorMsg(err?.message || 'Произошла ошибка. Попробуйте позже.');
+    }
+  };
+
+  return (
+    <section id="contact" className="py-24 px-6 bg-gradient-to-b from-slate-50 to-white">
+      <div className="max-w-2xl mx-auto text-center">
+        <h2 className="text-3xl md:text-5xl font-black mb-4 text-slate-900 tracking-tight">Остались вопросы?</h2>
+        <p className="text-slate-500 text-lg mb-10">Оставьте свои контакты, и мы свяжемся с вами в ближайшее время</p>
+
+        {status === 'success' ? (
+          <div className="p-8 bg-green-50 border border-green-200 rounded-2xl">
+            <CheckCircle2 className="text-green-500 mx-auto mb-3" size={48} />
+            <p className="text-green-700 font-bold text-xl">Спасибо! Мы скоро свяжемся с вами.</p>
+          </div>
+        ) : (
+          <form onSubmit={handleSubmit} className="space-y-4 text-left">
+            <div>
+              <label className="block text-sm font-bold text-slate-700 mb-1">Email</label>
+              <input
+                type="email"
+                required
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="your@email.com"
+                className="w-full px-5 py-4 rounded-xl border border-slate-200 bg-white text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+              />
+            </div>
+            <div>
+              <label className="block text-sm font-bold text-slate-700 mb-1">Телефон</label>
+              <input
+                type="tel"
+                required
+                value={phone}
+                onChange={(e) => setPhone(e.target.value)}
+                placeholder="+7 (999) 123-45-67"
+                className="w-full px-5 py-4 rounded-xl border border-slate-200 bg-white text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+              />
+            </div>
+            {status === 'error' && (
+              <p className="text-red-500 text-sm font-medium">{errorMsg}</p>
+            )}
+            <button
+              type="submit"
+              disabled={status === 'loading'}
+              className="w-full py-4 bg-blue-600 text-white rounded-xl font-bold text-lg hover:bg-blue-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+            >
+              {status === 'loading' ? 'Отправляем...' : 'Свяжитесь со мной'}
+            </button>
+          </form>
+        )}
+      </div>
+    </section>
+  );
+};
+
 // Links from env (set in Vercel/Netlify)
 const STRIPE_PAYMENT_LINK = (import.meta as any).env?.VITE_STRIPE_PAYMENT_LINK as string | undefined;
 const TELEGRAM_LINK = (import.meta as any).env?.VITE_TELEGRAM_LINK as string | undefined;
@@ -680,6 +761,7 @@ const App: React.FC = () => {
       <Symptoms />
       <Pricing />
       <FAQ />
+      <ContactForm />
       <Footer />
       
       {/* Sticky CTA for mobile */}

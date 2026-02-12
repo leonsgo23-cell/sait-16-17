@@ -327,7 +327,7 @@ const Schedule = () => {
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-20">
           <h2 className="text-4xl md:text-5xl font-black mb-4 text-slate-900">Программа тренинга</h2>
-          <p className="text-blue-600 font-bold text-lg">🕕 18:00 — 20:00 (по Москве)</p>
+          <p className="text-blue-600 font-bold text-lg">🕕 18:00 — 20:00</p>
         </div>
         <div className="grid md:grid-cols-2 gap-12">
           {days.map((item) => (

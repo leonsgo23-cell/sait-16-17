@@ -15,7 +15,7 @@ serve(async (req) => {
   }
 
   try {
-    const { email, phone } = await req.json();
+    const { name, email, phone } = await req.json();
 
     if (!email || !phone) {
       return new Response(JSON.stringify({ error: 'Email и телефон обязательны' }), {
@@ -46,7 +46,7 @@ serve(async (req) => {
 
     const { error: dbError } = await supabase
       .from('contact_submissions')
-      .insert({ email, phone });
+      .insert({ name: name || null, email, phone });
 
     if (dbError) {
       console.error('DB error:', dbError);
@@ -54,7 +54,8 @@ serve(async (req) => {
 
     // Send Telegram notification
     if (TELEGRAM_BOT_TOKEN && TELEGRAM_CHAT_ID) {
-      const text = `📩 Новая заявка с сайта!\n\n📧 Email: ${email}\n📱 Телефон: ${phone}`;
+      const nameLine = name ? `👤 Имя: ${name}\n` : '';
+      const text = `📩 Новая заявка с сайта!\n\n${nameLine}📧 Email: ${email}\n📱 Телефон: ${phone}`;
       
       const tgRes = await fetch(
         `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`,

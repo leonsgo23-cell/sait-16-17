@@ -552,6 +552,7 @@ const Pricing = () => (
           <div className="text-2xl text-slate-400 line-through font-bold">149 €</div>
           <div className="text-8xl font-black text-blue-600 leading-none">89 €</div>
         </div>
+        <p className="text-blue-600 font-bold text-lg mb-8">🚀 Повысьте вероятность достижения своих целей до 99%</p>
         <button onClick={goToCheckout} className="w-full py-8 bg-slate-900 text-white rounded-3xl font-black text-3xl hover:bg-slate-800 transition-all shadow-2xl shadow-slate-900/20 transform hover:scale-[1.02]">
           Зарегистрироваться
         </button>
@@ -665,6 +666,7 @@ const Footer = () => {
 
 
 const ContactForm = () => {
+  const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
@@ -677,13 +679,14 @@ const ContactForm = () => {
 
     try {
       const { data, error } = await supabase.functions.invoke('send-contact', {
-        body: { email, phone },
+        body: { name, email, phone },
       });
 
       if (error) throw error;
       if (data?.error) throw new Error(data.error);
 
       setStatus('success');
+      setName('');
       setEmail('');
       setPhone('');
     } catch (err: any) {
@@ -706,6 +709,17 @@ const ContactForm = () => {
         ) : (
           <form onSubmit={handleSubmit} className="space-y-4 text-left">
             <div>
+              <label className="block text-sm font-bold text-slate-700 mb-1">Имя</label>
+              <input
+                type="text"
+                required
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                placeholder="Ваше имя"
+                className="w-full px-5 py-4 rounded-xl border border-slate-200 bg-white text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+              />
+            </div>
+            <div>
               <label className="block text-sm font-bold text-slate-700 mb-1">Email</label>
               <input
                 type="email"
@@ -723,7 +737,7 @@ const ContactForm = () => {
                 required
                 value={phone}
                 onChange={(e) => setPhone(e.target.value)}
-                placeholder="+7 (999) 123-45-67"
+                placeholder="+371 2X XXX XXX"
                 className="w-full px-5 py-4 rounded-xl border border-slate-200 bg-white text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
               />
             </div>
